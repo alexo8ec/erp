@@ -39,27 +39,27 @@ class VentasCabecera extends Model
             $dia = $a + 1;
             foreach ($ventas as $sal) {
                 if ($sal->d == $dia) {
-                    //$arrayVentas .= '{"0":"' . $sal->Y . '","1":"' . $sal->m . '","2":"' . (string)$dia . '","3":"' . $sal->total . '"},';
-                    $arrayVenta = [
+                    $arrayVentas .= '{"0":"' . $sal->Y . '","1":"' . $sal->m . '","2":"' . (string)$dia . '","3":"' . $sal->total . '"},';
+                    /*$arrayVenta = [
                         $sal->Y,
                         $sal->m,
                         (string)$dia,
                         $sal->total,
-                    ];
+                    ];*/
                 } else {
-                    //$arrayVentas .= '{"0":"' . session('periodo') . '","1":"' . date('m') . '","2":"' . (string)$dia . '","3":"0"},';
-                    $arrayVenta = [
+                    $arrayVentas .= '{"0":"' . session('periodo') . '","1":"' . date('m') . '","2":"' . (string)$dia . '","3":"0"},';
+                    /*$arrayVenta = [
                         (string)session('periodo'),
                         (string)date('m'),
                         (string)$dia,
                         (string)0,
-                    ];
+                    ];*/
                 }
-                array_push($arrayVentas, $arrayVenta);
+                //array_push($arrayVentas, $arrayVenta);
             }
         }
-        /*$arrayVentas = substr($arrayVentas, 0, -1);
-        return '[' . $arrayVentas . ']';*/
+        $arrayVentas = substr($arrayVentas, 0, -1);
+        return '[' . $arrayVentas . ']';
         return $arrayVentas;
     }
     public static function ventasMes($anio)
