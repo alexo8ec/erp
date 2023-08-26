@@ -31,25 +31,29 @@ class Cobros extends Model
         for ($i = 0; $i < $number; $i++) {
             $a = $i;
             $dia = $a + 1;
-            foreach ($cobros as $sal) {
-                if ($sal->d == $dia) {
-                    $arrayCobros .= '{"0":"' . $sal->Y . '","1":"' . $sal->m . '","2":"' . (string)$dia . '","3":"' . $sal->total . '"},';
-                    /*$arrayCobro = [
+            if ($cobros->count() > 0) {
+                foreach ($cobros as $sal) {
+                    if ($sal->d == $dia) {
+                        $arrayCobros .= '{"0":"' . $sal->Y . '","1":"' . $sal->m . '","2":"' . (string)$dia . '","3":"' . $sal->total . '"},';
+                        /*$arrayCobro = [
                         $sal->Y,
                         $sal->m,
                         (string)$dia,
                         $sal->total,
                     ];*/
-                } else {
-                    $arrayCobros .= '{"0":"' . session('periodo') . '","1":"' . date('m') . '","2":"' . (string)$dia . '","3":"0"},';
-                    /*$arrayCobro = [
+                    } else {
+                        $arrayCobros .= '{"0":"' . session('periodo') . '","1":"' . date('m') . '","2":"' . (string)$dia . '","3":"0"},';
+                        /*$arrayCobro = [
                         (string)session('periodo'),
                         (string)date('m'),
                         (string)$dia,
                         (string)0,
                     ];*/
+                    }
+                    //array_push($arrayCobros, $arrayCobro);
                 }
-                //array_push($arrayCobros, $arrayCobro);
+            } else {
+                $arrayCobros .= '{"0":"' . session('periodo') . '","1":"' . date('m') . '","2":"' . (string)$dia . '","3":"0"},';
             }
         }
         $arrayCobros = substr($arrayCobros, 0, -1);
