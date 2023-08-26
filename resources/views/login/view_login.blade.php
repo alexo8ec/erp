@@ -16,12 +16,10 @@
 </head>
 
 <body class="gray-bg">
-
     <div class="loginColumns animated fadeInDown">
         <div class="row">
-
             <div class="col-md-6">
-                <h2 class="font-bold">{{ $info->name_info }} V{{ $info->mayor_info }}.{{ $info->menor_info }}</h2>
+                <h2 class="font-bold">{{ $info->nombre_info }} V{{ $info->mayor_info }}.{{ $info->menor_info }}</h2>
                 <p>
                     {{ $info->descripcion_info }}
                 </p>
@@ -45,9 +43,7 @@
                     <?php
                     if (session('message')) {
                         $msn = explode('|', session('message'));
-                        echo '<div class="alert alert-' . $msn[0] . ' text-center">
-                            ' . $msn[1] . '
-                        </div>';
+                        echo '<div class="alert alert-' . $msn[0] . ' text-center">' . $msn[1] . '</div>';
                     }
                     ?>
                     <p class="m-t">
@@ -58,12 +54,8 @@
         </div>
         <hr />
         <div class="row">
-            <div class="col-md-6">
-                Copyright AmsGroup
-            </div>
-            <div class="col-md-6 text-right">
-                <small>© 2004-{{ date('Y') }}</small>
-            </div>
+            <div class="col-md-6">Copyright AmsGroup</div>
+            <div class="col-md-6 text-right"><small>© 2004-{{ date('Y') }}</small></div>
         </div>
     </div>
 </body>
