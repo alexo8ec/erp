@@ -19,6 +19,7 @@ class VentasCabecera extends Model
 
     public static function totalVentasAnual()
     {
+        $arrayVentas = [];
         $ventas = VentasCabecera::selectRaw(
             'GROUP_CONCAT(YEAR(fecha_emision_venta_cabecera) limit 1) as Y,
             GROUP_CONCAT(MONTH(fecha_emision_venta_cabecera) limit 1) as m,
@@ -31,7 +32,30 @@ class VentasCabecera extends Model
             ->where('estado_venta_cabecera', 1)
             ->groupBy(DB::raw('DAY(fecha_emision_venta_cabecera)'))
             ->get();
-        dd($ventas);
+        $number = cal_days_in_month(CAL_GREGORIAN, date('m'), session('periodo'));
+        for ($i = 0; $i < $number; $i++) {
+            $a = $i;
+            $dia = $a + 1;
+            foreach ($ventas as $sal) {
+                if ($sal->d == $dia) {
+                    $arrayVenta = [
+                        $sal->Y,
+                        $sal->m,
+                        (string)$dia,
+                        $sal->total,
+                    ];
+                } else {
+                    $arrayVenta = [
+                        (string)session('periodo'),
+                        (string)date('m'),
+                        (string)$dia,
+                        (string)0,
+                    ];
+                }
+                array_push($arrayVentas, $arrayVenta);
+            }
+        }
+        return $arrayVentas
     }
     public static function ventasMes($anio)
     {
