@@ -74,7 +74,17 @@ $(document).ready(function () {
             }
         });
     });
-    let monthCharges = JSON.parse($('#cobros_mensuales').val());
+    let monthCharges = $.ajax({
+        url: $('#controlador').val() + '/monthCharges',
+        type: 'post',
+        data: {
+            _token: $('#token').val()
+        },
+        dataType: 'json',
+        success: function (json) {
+            return json;
+        }
+    });
     console.log(monthCharges);
     let arrayData2 = [];
     $.each(monthCharges, function (i, item) {
