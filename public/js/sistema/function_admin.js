@@ -74,18 +74,18 @@ $(document).ready(function () {
             }
         });
     });
-    let monthCharges = JSON.parse($('#ventas_mensuales').val());
+    let monthSales = JSON.parse($('#ventas_mensuales').val());
     let arrayData2 = [];
-    $.each(monthCharges, function (i, item) {
+    $.each(monthSales, function (i, item) {
         let array = [
             gd(item[0], item[1], item[2]),
             item[3]
         ];
         arrayData2.push(array);
     });
-    let monthSales = JSON.parse($('#cobros_mensuales').val());
+    let monthCharge = JSON.parse($('#cobros_mensuales').val());
     let arrayData3 = [];
-    $.each(monthSales, function (i, item) {
+    $.each(monthCharge, function (i, item) {
         let array = [
             gd(item[0], item[1], item[2]),
             item[3]
