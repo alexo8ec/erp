@@ -60,7 +60,7 @@ class VentasCabecera extends Model
             'code' => 200,
             'data' => $arrayVentas
         ];
-        return response()->json($arrayRespuesta);
+        return json_encode($arrayRespuesta);
     }
     public static function ventasMes($anio)
     {
