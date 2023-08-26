@@ -97,7 +97,7 @@ $(document).ready(function () {
     var dataset = [
         {
             label: "Ventas",
-            data: data3,
+            data: data2,
             color: "#1ab394",
             bars: {
                 show: true,
@@ -108,7 +108,7 @@ $(document).ready(function () {
 
         }, {
             label: "Cobros",
-            data: data2,
+            data: data3,
             yaxis: 2,
             color: "#1C84C6",
             lines: {
