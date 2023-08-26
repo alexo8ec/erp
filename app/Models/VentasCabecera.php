@@ -58,7 +58,7 @@ class VentasCabecera extends Model
         $arrayRespuesta = [
             'status' => true,
             'code' => 200,
-            'data' => $arrayVentas
+            'data' =>json_encode($arrayVentas)
         ];
         return json_encode($arrayRespuesta);
     }
