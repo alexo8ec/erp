@@ -26,7 +26,7 @@ class VentasCabecera extends Model
             SUM(total_venta_cabecera) as total'
         )
             ->where('id_empresa_venta_cabecera', session('idEmpresa'))
-            ->whereYear('fecha_emision_venta_cabecera', session('perirodo'))
+            ->whereYear('fecha_emision_venta_cabecera', session('periodo'))
             ->whereMonth('fecha_emision_venta_cabecera', date('m'))
             ->where('estado_venta_cabecera', 1)
             ->groupBy(DB::raw('DAY(fecha_emision_venta_cabecera)'))
