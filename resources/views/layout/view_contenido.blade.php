@@ -69,7 +69,7 @@
                 <div class="ibox-title">
                     <h5>Orders</h5>
                 </div>
-                <input id="total_ventas_anual" value="{{json_encode(config('data.total_ventas_anual'))}}" />
+                <input type="hidden" id="total_ventas_anual" value="{{json_encode(config('data.ventas_mensuales'))}}" />
                 <div class="ibox-content">
                     <div class="row">
                         <div class="col-lg-9">

@@ -17,7 +17,7 @@ class VentasCabecera extends Model
 
     private static $modelo = 'Ventas';
 
-    public static function totalVentasAnual()
+    public static function ventasDiariasEstadistico()
     {
         $arrayVentas = [];
         $ventas = VentasCabecera::selectRaw(
