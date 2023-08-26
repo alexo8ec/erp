@@ -15,7 +15,7 @@ class Cobros extends Model
     public static function cobroDiarioEstadistico()
     {
         $arrayCobros = [];
-        $cobros = VentasCabecera::selectRaw(
+        $cobros = Cobros::selectRaw(
             'GROUP_CONCAT(YEAR(fecha_cobro) limit 1) as Y,
             GROUP_CONCAT(MONTH(fecha_cobro) limit 1) as m,
             GROUP_CONCAT(DAY(fecha_cobro) limit 1) as d,
