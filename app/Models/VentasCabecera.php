@@ -19,8 +19,8 @@ class VentasCabecera extends Model
 
     public static function ventasDiariasEstadistico()
     {
-        //$arrayVentas = '';
-        $arrayVentas = [];
+        $arrayVentas = '';
+        //$arrayVentas = [];
         $ventas = VentasCabecera::selectRaw(
             'GROUP_CONCAT(YEAR(fecha_emision_venta_cabecera) limit 1) as Y,
             GROUP_CONCAT(MONTH(fecha_emision_venta_cabecera) limit 1) as m,
