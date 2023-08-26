@@ -100,8 +100,6 @@ $(document).ready(function () {
     });
     var data2 = arrayData2;
     var data3 = arrayData3;
-    console.log(data2, data3);
-    return;
     var dataset = [
         {
             label: "Ventas",
