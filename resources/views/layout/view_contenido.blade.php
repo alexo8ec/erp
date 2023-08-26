@@ -69,11 +69,6 @@
                 <div class="ibox-title">
                     <h5>Orders</h5>
                 </div>
-                <?php
-                echo '<pre>';
-                print_r(config('data.total_ventas_anual'));
-                exit;
-                ?>
                 <input id="total_ventas_anual" value="<?= json_encode(config('data.total_ventas_anual')); ?>" />
                 <div class="ibox-content">
                     <div class="row">
