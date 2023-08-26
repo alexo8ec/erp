@@ -82,6 +82,8 @@ $(document).ready(function () {
         },
         dataType: 'json',
         success: function (json) {
+            console.log(json);
+            return;
             return json;
         }
     });
