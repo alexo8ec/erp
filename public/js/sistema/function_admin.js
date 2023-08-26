@@ -75,7 +75,7 @@ $(document).ready(function () {
         });
     });
     var url = $('#controlador').val() + '/monthCharges';
-    let monthCharges = $.get(url, function (json, status) {
+    let monthCharges = $.getJSON(url, function (json, status) {
         return json;
     });
 
