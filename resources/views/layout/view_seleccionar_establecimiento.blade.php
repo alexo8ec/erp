@@ -30,7 +30,7 @@
                                             <?php
                                             if (config('data.establecimientos') != '' && count(config('data.establecimientos')) > 0) {
                                                 foreach (config('data.establecimientos') as $row) {
-                                                    echo '<option value="' . $row->id_establecimiento . '">' . $row->establecimiento . ' | ' . $row->emision_establecimiento . ' | ' . $row->nombre_establecimiento . ' | ' . $row->tipo_establecimiento . '</option>';
+                                                    echo '<option value="' . $row->id_establecimiento . '" class="text-center">' . $row->establecimiento . ' | ' . $row->emision_establecimiento . ' | ' . $row->nombre_establecimiento . ' | ' . $row->tipo_establecimiento . '</option>';
                                                 }
                                             }
                                             ?>
