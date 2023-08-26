@@ -19,7 +19,7 @@ class VentasCabecera extends Model
 
     public static function ventasDiariasEstadistico()
     {
-        $arrayVentas = [];
+        $arrayVentas = '';
         $ventas = VentasCabecera::selectRaw(
             'GROUP_CONCAT(YEAR(fecha_emision_venta_cabecera) limit 1) as Y,
             GROUP_CONCAT(MONTH(fecha_emision_venta_cabecera) limit 1) as m,
@@ -38,29 +38,28 @@ class VentasCabecera extends Model
             $dia = $a + 1;
             foreach ($ventas as $sal) {
                 if ($sal->d == $dia) {
-                    $arrayVenta = [
+                    $arrayVentas .= $sal->Y . ',' . $sal->m . ',' . (string)$dia . ',' . $sal->total;
+                    /*$arrayVenta = [
                         $sal->Y,
                         $sal->m,
                         (string)$dia,
                         $sal->total,
-                    ];
+                    ];*/
                 } else {
-                    $arrayVenta = [
+                    $arrayVentas .= session('periodo') . ',' . date('m') . ',' . (string)$dia . ',' . 0;
+                    /*$arrayVenta = [
                         (string)session('periodo'),
                         (string)date('m'),
                         (string)$dia,
                         (string)0,
-                    ];
+                    ];*/
                 }
-                array_push($arrayVentas, $arrayVenta);
+                //array_push($arrayVentas, $arrayVenta);
             }
         }
-        $arrayRespuesta = [
-            'status' => true,
-            'code' => 200,
-            'data' =>json_encode($arrayVentas)
-        ];
-        return json_encode($arrayRespuesta);
+        echo $arrayVentas;
+        exit;
+        return json_encode($arrayVentas);
     }
     public static function ventasMes($anio)
     {
