@@ -11,8 +11,6 @@
 <script src="{{asset('public/js/plugins/flot/curvedLines.js')}}"></script>
 <script src="{{asset('public/js/plugins/flot/jquery.flot.time.js')}}"></script>
 <script src="{{asset('public/js/plugins/peity/jquery.peity.min.js')}}"></script>
-<script src="{{ url('/') }}/public/js/plugins/chartJs/Chart.min.js"></script>
-    <script src="{{ url('/') }}/public/js/demo/chartjs-demo.js"></script>
 <?php
 if (config('data.controlador') != null && config('data.controlador') == 'admin') {
 }
@@ -33,6 +31,10 @@ if (config('data.controlador') != null && config('data.controlador') == 'admin')
 <script src="{{ url('/') }}/public/js/plugins/pace/pace.min.js"></script>
 <script src="{{ url('/') }}/public/js/plugins/jquery-ui/jquery-ui.min.js"></script>
 <script src="{{ url('/') }}/public/js/plugins/iCheck/icheck.min.js"></script>
+<script src="{{asset('public/js/plugins/jvectormap/jquery-jvectormap-2.0.2.min.js')}}"></script>
+<script src="{{asset('public/js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
+<script src="{{asset('public/js/plugins/easypiechart/jquery.easypiechart.js')}}"></script>
+<script src="{{asset('public/js/plugins/sparkline/jquery.sparkline.min.js')}}"></script>
 
 <?php
 if (config('data.calendario') != '' && config('data.calendario') == true) {
