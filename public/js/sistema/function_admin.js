@@ -75,6 +75,7 @@ $(document).ready(function () {
         });
     });
     let monthCharges = JSON.parse($('#cobros_mensuales').val());
+    console.log(monthCharges);
     let arrayData2 = [];
     $.each(monthCharges, function (i, item) {
         let array = [
