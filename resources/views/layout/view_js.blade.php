@@ -8,6 +8,11 @@
 <script src="{{asset('public/js/plugins/flot/jquery.flot.resize.js')}}"></script>
 <script src="{{asset('public/js/plugins/flot/jquery.flot.pie.js')}}"></script>
 <script src="{{asset('public/js/plugins/flot/jquery.flot.symbol.js')}}"></script>
+<script src="{{asset('public/js/plugins/flot/curvedLines.js')}}"></script>
+<script src="{{asset('public/js/plugins/flot/jquery.flot.time.js')}}"></script>
+<script src="{{asset('public/js/plugins/peity/jquery.peity.min.js')}}"></script>
+<script src="{{ url('/') }}/public/js/plugins/chartJs/Chart.min.js"></script>
+    <script src="{{ url('/') }}/public/js/demo/chartjs-demo.js"></script>
 <?php
 if (config('data.controlador') != null && config('data.controlador') == 'admin') {
 }
@@ -23,6 +28,7 @@ if (config('data.controlador') != null && config('data.controlador') == 'admin')
 <script src="{{ url('/') }}/public/js/plugins/ladda/ladda.jquery.min.js"></script>
 
 <script src="{{ url('/') }}/public/js/plugins/fullcalendar/moment.min.js"></script>
+<script src="{{asset('public/js/demo/peity-demo.js')}}"></script>
 <script src="{{ url('/') }}/public/js/inspinia.js"></script>
 <script src="{{ url('/') }}/public/js/plugins/pace/pace.min.js"></script>
 <script src="{{ url('/') }}/public/js/plugins/jquery-ui/jquery-ui.min.js"></script>
