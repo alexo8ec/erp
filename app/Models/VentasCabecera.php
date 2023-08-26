@@ -40,7 +40,7 @@ class VentasCabecera extends Model
             if ($ventas->count() > 0) {
                 foreach ($ventas as $sal) {
                     if ($sal->d == $dia) {
-                        $arrayVentas .= '{"0":"' . $sal->Y . '","1":"' . $sal->m . '","2":"' . (string)$dia . '","3":"' . $sal->total . '"},';
+                        $arrayVentas .= '{"0":"' . $sal->Y . '","1":"' . $sal->m . '","2":"' . (string)$dia . '","3":"0"},';
                         /*$arrayVenta = [
                         $sal->Y,
                         $sal->m,
