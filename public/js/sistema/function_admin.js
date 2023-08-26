@@ -82,11 +82,10 @@ $(document).ready(function () {
         },
         dataType: 'json',
         success: function (json) {
-            console.log(JSON.parse(json));
-            return json;
+            return JSON.parse(json);
         }
     });
-    //console.log(monthCharges);
+    // console.log(monthCharges);
     let arrayData2 = [];
     $.each(monthCharges, function (i, item) {
         let array = [
