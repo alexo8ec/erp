@@ -16,6 +16,11 @@ class VentasCabecera extends Model
     const UPDATED_AT = 'updated_at_venta_cabecera';
 
     private static $modelo = 'Ventas';
+
+    public static function totalVentasAnual()
+    {
+        return VentasCabecera::where('id_empresa_venta_cabecera', session('idEmpresa'))->whereYear('fecha_emision_venta_cabecera', session('periodo'))->sum('total_venta_cabecera');
+    }
     public static function ventasMes($anio)
     {
         $meses = VentasCabecera::selectRaw(
@@ -365,7 +370,7 @@ class VentasCabecera extends Model
                         'id_empresa_movimiento' => session('idEmpresa'),
                         'id_usuario_creacion_movimiento' => session('idUsuario'),
                         'id_usuario_modificacion_movimiento' => session('idUsuario'),
-                        'fecha_movimiento'=>date('Y-m-d H:i:s')
+                        'fecha_movimiento' => date('Y-m-d H:i:s')
                     ];
                     MovimientoProducto::insert($arrayMovimiento);
                 }
@@ -465,7 +470,7 @@ class VentasCabecera extends Model
                     'totalConImpuestos' => $totalConImpuestos,
                     'detalles' => $detalles,
                     'total_pagar' => $r->total_pagar,
-                    'forma_pago' =>json_decode(json_encode($formaPago),true),
+                    'forma_pago' => json_decode(json_encode($formaPago), true),
                     'tiempo_credito' => 0,
                     'ruc' => $empresa->ruc_empresa,
                     'adicionales' => $adicionales
