@@ -80,11 +80,9 @@ $(document).ready(function () {
     });*/
     let monthCharges = JSON.parse($('#ventas_mensuales').val());
     let arrayData2 = [];
-    console.log(monthCharges[0]);
-    return;
-
     $.each(monthCharges, function (i, item) {
-
+        console.log(item[0]);
+        return;
         let array = [
             gd(item[0], item[1], item[2]),
             item[3]
