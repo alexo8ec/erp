@@ -55,7 +55,7 @@ class VentasCabecera extends Model
                 array_push($arrayVentas, $arrayVenta);
             }
         }
-        return json_encode($arrayVentas);
+        return $arrayVentas;
     }
     public static function ventasMes($anio)
     {
