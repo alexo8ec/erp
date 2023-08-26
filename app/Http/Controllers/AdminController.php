@@ -61,7 +61,7 @@ class AdminController extends Controller
             $esta = Establecimientos::find($r->id);
             session(['estab' => $esta->establecimiento, 'emisi' => $esta->emision_establecimiento, 'tipo_establecimiento' => $esta->tipo_establecimiento]);
         } elseif ($r->submodulo == 'monthCharges') {
-            return VentasCabecera::cobroDiarioEstadistico();
+            return VentasCabecera::ventasDiariasEstadistico();
         } else {
             if ($tipoUsuario->codigo_catalogo == 'empresas') {
                 if (session('idEmpresa') != '') {
@@ -84,7 +84,7 @@ class AdminController extends Controller
                         $data['totalCompras'] = ComprasCabecera::totalCompras();
                         $data['totalClientes'] = Clientes::totalClientes();
                         $data['totalProveedores'] = Proveedores::totalProveedores();
-                        $data['ventas_mensuales'] = VentasCabecera::ventasDiariasEstadistico();
+                        //$data['ventas_mensuales'] = VentasCabecera::ventasDiariasEstadistico();
                         //$data['cobros_mensuales'] = Cobros::cobroDiarioEstadistico();
                         /*$dato['total_ventas_mensual'] = Sales::where('status_sale', '1')->where('id_company_sale', $r->id_company)->whereYear('date_issue_sale', $r->periodo)->whereMonth('date_issue_sale',  date('m'))->sum('net_sale');
                         $dato['total_cobros_mensual'] = Charges::where('status_charge', '1')->where('id_company_charge', $r->id_company)->whereYear('date_issue_charge', $r->periodo)->whereMonth('date_issue_charge',  date('m'))->sum('value_charge');*/
