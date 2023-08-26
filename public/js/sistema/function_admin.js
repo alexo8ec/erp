@@ -82,7 +82,7 @@ $(document).ready(function () {
         },
         dataType: 'json',
         success: function (json) {
-            return JSON.parse(json);
+            return json;
         }
     });
     console.log(monthCharges);
