@@ -24,7 +24,7 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js"></script>
 <script src="{{ url('/') }}/public/js/plugins/select2/select2.full.min.js"></script>
 <?= config('data.table') == true ? '<script src="public/js/plugins/dataTables/datatables.min.js"></script>' : ''; ?>
-<script src="{{asset('public/js/sistema/functions.js')}}"></script>
+<script src="{{asset('public/js/sistema/function.js')}}"></script>
 <script src="{{ url('/') }}/public/js/sistema/function_{{config('data.controlador')}}.js"></script>
 
 
