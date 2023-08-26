@@ -82,6 +82,7 @@ $(document).ready(function () {
   
     let arrayData2 = [];
     $.each(monthCharges, function (i, item) {
+        console.log(item);return;
         let array = [
             gd(item[0], item[1], item[2]),
             item[3]
