@@ -85,6 +85,8 @@ $(document).ready(function () {
             return JSON.parse(json);
         }
     });
+    console.log(monthCharges);
+    return;
     let arrayData2 = [];
     $.each(monthCharges, function (i, item) {
         let array = [
