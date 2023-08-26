@@ -79,7 +79,7 @@ $(document).ready(function () {
         return json;
     });*/
     let monthCharges = JSON.parse($('#ventas_mensuales').val());
-    console.log(item);
+    console.log(monthCharges);
     return;
 
     let arrayData2 = [];
