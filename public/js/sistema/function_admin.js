@@ -182,5 +182,7 @@ $(document).ready(function () {
     }
     var previousPoint = null,
         previousLabel = null;
+    console.log(dataset);
+    return;
     $.plot($("#flot-dashboard-chart"), dataset, options);
 });
