@@ -21,7 +21,7 @@
             <div class="ibox ">
                 <div class="ibox-content">
                     <center>
-                        <div class="col-lg-4">
+                        <div class="col-lg-4 text-center" >
                             <table style="width: 100%;">
                                 <tr>
                                     <td align="center">
