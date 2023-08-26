@@ -79,7 +79,7 @@ $(document).ready(function () {
         return json;
     });
 
-    console.log(monthCharges);
+    console.log(monthCharges.responseText);
     return;
 
     let arrayData2 = [];
