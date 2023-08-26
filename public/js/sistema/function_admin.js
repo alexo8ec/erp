@@ -74,20 +74,14 @@ $(document).ready(function () {
             }
         });
     });
-    let monthCharges = $.ajax({
-        url: $('#controlador').val() + '/monthCharges',
-        type: 'post',
-        data: {
-            _token: $('#token').val()
-        },
-        dataType: 'json',
-        success: function (json) {
-            return json;
-        }
+    var url = $('#controlador').val() + '/monthCharges';
+    let monthCharges = $get(url, function (json, status) {
+        return data;
     });
-    console.log(monthCharges.JSON.parse);
+
+    console.log(monthCharges);
     return;
-    
+
     let arrayData2 = [];
     $.each(monthCharges, function (i, item) {
         let array = [
