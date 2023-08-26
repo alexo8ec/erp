@@ -85,8 +85,6 @@ $(document).ready(function () {
             gd(item[0], item[1], item[2]),
             item[3]
         ];
-        console.log(array);
-        return;
         arrayData2.push(array);
     });
     let monthSales = JSON.parse($('#cobros_mensuales').val());
@@ -100,6 +98,8 @@ $(document).ready(function () {
     });
     var data2 = arrayData2;
     var data3 = arrayData3;
+    console.log(data2);
+        return;
     var dataset = [
         {
             label: "Ventas",
