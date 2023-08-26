@@ -2,6 +2,12 @@
 <script src="{{ url('/') }}/public/js/bootstrap.js"></script>
 <script src="{{ url('/') }}/public/js/plugins/metisMenu/jquery.metisMenu.js"></script>
 <script src="{{ url('/') }}/public/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="{{asset('public/js/plugins/flot/jquery.flot.js')}}"></script>
+<script src="{{asset('public/js/plugins/flot/jquery.flot.tooltip.min.js')}}"></script>
+<script src="{{asset('public/js/plugins/flot/jquery.flot.spline.js')}}"></script>
+<script src="{{asset('public/js/plugins/flot/jquery.flot.resize.js')}}"></script>
+<script src="{{asset('public/js/plugins/flot/jquery.flot.pie.js')}}"></script>
+<script src="{{asset('public/js/plugins/flot/jquery.flot.symbol.js')}}"></script>
 <?php
 if (config('data.controlador') != null && config('data.controlador') == 'admin') {
 }
