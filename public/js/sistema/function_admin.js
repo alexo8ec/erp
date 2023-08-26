@@ -82,7 +82,7 @@ $(document).ready(function () {
         },
         dataType: 'json',
         success: function (json) {
-            console.log(json);
+            console.log(JSON.parse(json));
             return json;
         }
     });
