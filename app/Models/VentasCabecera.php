@@ -19,7 +19,19 @@ class VentasCabecera extends Model
 
     public static function totalVentasAnual()
     {
-        return VentasCabecera::where('id_empresa_venta_cabecera', session('idEmpresa'))->whereYear('fecha_emision_venta_cabecera', session('periodo'))->sum('total_venta_cabecera');
+        $ventas = VentasCabecera::selectRaw(
+            'GROUP_CONCAT(YEAR(fecha_emision_venta_cabecera) limit 1) as Y,
+            GROUP_CONCAT(MONTH(fecha_emision_venta_cabecera) limit 1) as m,
+            GROUP_CONCAT(DAY(fecha_emision_venta_cabecera) limit 1) as d,
+            SUM(total_venta_cabecera) as total'
+        )
+            ->where('id_empresa_venta_cabecera', session('idEmpresa'))
+            ->whereYear('fecha_emision_venta_cabecera', session('perirodo'))
+            ->whereMonth('fecha_emision_venta_cabecera', date('m'))
+            ->where('estado_venta_cabecera', 1)
+            ->groupBy(DB::raw('DAY(fecha_emision_venta_cabecera)'))
+            ->get();
+        dd($ventas);
     }
     public static function ventasMes($anio)
     {
