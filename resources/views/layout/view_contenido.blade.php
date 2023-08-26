@@ -75,7 +75,7 @@
                     <div class="row">
                         <div class="col-lg-9">
                             <div class="flot-chart">
-                                <div class="flot-chart-content" id="flot-dashboard-chart"></div>
+                                <div class="flot-chart-content" id="flot-dashboard-chart" style="width: 100%;"></div>
                             </div>
                         </div>
                         <div class="col-lg-3">
