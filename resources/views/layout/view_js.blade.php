@@ -1,4 +1,4 @@
-<script src="{{ url('/') }}/public/js/popper.min.js"></script>
+<!--<script src="{{ url('/') }}/public/js/popper.min.js"></script>
 <script src="{{ url('/') }}/public/js/bootstrap.js"></script>
 <script src="{{ url('/') }}/public/js/plugins/metisMenu/jquery.metisMenu.js"></script>
 <script src="{{ url('/') }}/public/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
@@ -70,3 +70,4 @@ if (config('data.estadistica') != '' && config('data.estadistica') == true) {
 
 <script src="{{ url('/') }}/public/js/sistema/function.js"></script>
 <script src="{{ url('/') }}/public/js/sistema/function_{{config('data.controlador')}}.js"></script>
+-->

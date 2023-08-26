@@ -74,10 +74,6 @@ $(document).ready(function () {
             }
         });
     });
-    /*var url = $('#controlador').val() + '/monthCharges';
-    let monthCharges = $.getJSON(url, function (json, status) {
-        return json;
-    });*/
     let monthCharges = JSON.parse($('#ventas_mensuales').val());
     let arrayData2 = [];
     $.each(monthCharges, function (i, item) {
