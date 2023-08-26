@@ -60,6 +60,9 @@ class VentasCabecera extends Model
         }
         /*$arrayVentas = substr($arrayVentas, 0, -1);
         return '[' . $arrayVentas . ']';*/
+        echo '<pre>';
+        print_r($arrayVentas);
+        exit;
         return $arrayVentas;
     }
     public static function ventasMes($anio)
