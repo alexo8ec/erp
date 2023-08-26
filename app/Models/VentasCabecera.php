@@ -38,7 +38,7 @@ class VentasCabecera extends Model
             $dia = $a + 1;
             foreach ($ventas as $sal) {
                 if ($sal->d == $dia) {
-                    $arrayVentas .= $sal->Y . ',' . $sal->m . ',' . (string)$dia . ',' . $sal->total;
+                    $arrayVentas .= '{' . $sal->Y . ',' . $sal->m . ',' . (string)$dia . ',' . $sal->total . '}';
                     /*$arrayVenta = [
                         $sal->Y,
                         $sal->m,
@@ -46,7 +46,7 @@ class VentasCabecera extends Model
                         $sal->total,
                     ];*/
                 } else {
-                    $arrayVentas .= session('periodo') . ',' . date('m') . ',' . (string)$dia . ',' . 0;
+                    $arrayVentas .= '{' . session('periodo') . ',' . date('m') . ',' . (string)$dia . ',0}';
                     /*$arrayVenta = [
                         (string)session('periodo'),
                         (string)date('m'),
