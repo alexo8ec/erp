@@ -15,6 +15,7 @@ class InicioController extends Controller
         if (session('idUsuario') != '')
             return redirect('admin');
         $info = Info::getInfo();
+        dd($info);
         $data['info'] = $info;
         if ($r->submodulo == 'login') {
             $mensaje = Usuarios::getLogin($r);
