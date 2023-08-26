@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    $('#flot-dashboard-chart').css('width','100%');
     try {
         $('#tablaPlanCuentas').DataTable({
             language: {
