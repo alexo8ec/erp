@@ -38,7 +38,7 @@ class VentasCabecera extends Model
             $dia = $a + 1;
             foreach ($ventas as $sal) {
                 if ($sal->d == $dia) {
-                    $arrayVentas .= "{'0':'' . $sal->Y . '','1':'' . $sal->m . '','2':'' . (string)$dia . '','3':'' . $sal->total . ''},";
+                    $arrayVentas .= '{"0":"' . $sal->Y . '","1":"' . $sal->m . '","2":"' . (string)$dia . '","3":"' . $sal->total . '"},';
                     /*$arrayVenta = [
                         $sal->Y,
                         $sal->m,
@@ -46,7 +46,7 @@ class VentasCabecera extends Model
                         $sal->total,
                     ];*/
                 } else {
-                    $arrayVentas .= "{'0':'' . session('periodo') . '','1':'' . date('m') . '','2':'' . (string)$dia . '','3':'0'},";
+                    $arrayVentas .= '{"0":"' . session('periodo') . '","1":"' . date('m') . '","2":"' . (string)$dia . '","3":"0"},';
                     /*$arrayVenta = [
                         (string)session('periodo'),
                         (string)date('m'),
@@ -58,8 +58,6 @@ class VentasCabecera extends Model
             }
         }
         $arrayVentas = substr($arrayVentas, 0, -1);
-        echo '[' . $arrayVentas . ']';
-        exit;
         return '[' . $arrayVentas . ']';
     }
     public static function ventasMes($anio)
