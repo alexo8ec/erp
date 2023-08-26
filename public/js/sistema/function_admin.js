@@ -53,7 +53,28 @@ $(document).ready(function () {
                 }
             ]
         });
-        let monthCharges = JSON.parse($('#month_charges').val());
+    } catch (error) {}
+    $('#btncopiarPlan').click(function () {
+        $.ajax({
+            url: 'contabilidad/copiarPlan',
+            type: 'post',
+            data: {
+                _token: $('#token').val()
+            },
+            dataType: 'json',
+            success: function (json) {
+                var mns = json.message.split('|');
+                console.log(json);
+                if (mns[0] == 'ok') {
+                    mensaje(mns[1], 'success');
+                    location.reload();
+                } else {
+                    mensaje(mns[1], 'error');
+                }
+            }
+        });
+    });
+    let monthCharges = JSON.parse($('#month_charges').val());
         let arrayData2 = [];
         $.each(monthCharges, function (i, item) {
             let array = [
@@ -161,25 +182,4 @@ $(document).ready(function () {
         var previousPoint = null,
             previousLabel = null;
         $.plot($("#flot-dashboard-chart"), dataset, options);
-    } catch (error) {}
-    $('#btncopiarPlan').click(function () {
-        $.ajax({
-            url: 'contabilidad/copiarPlan',
-            type: 'post',
-            data: {
-                _token: $('#token').val()
-            },
-            dataType: 'json',
-            success: function (json) {
-                var mns = json.message.split('|');
-                console.log(json);
-                if (mns[0] == 'ok') {
-                    mensaje(mns[1], 'success');
-                    location.reload();
-                } else {
-                    mensaje(mns[1], 'error');
-                }
-            }
-        });
-    });
 });
