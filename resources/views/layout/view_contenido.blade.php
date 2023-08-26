@@ -69,6 +69,7 @@
                 <div class="ibox-title">
                     <h5>Orders</h5>
                 </div>
+                <input type="hidden" id="ventas_mensuales" value="{{config('data.ventas_mensuales')}}" />
                 <input type="hidden" id="cobros_mensuales" value="{{json_encode(config('data.cobros_mensuales'))}}" />
                 <div class="ibox-content">
                     <div class="row">

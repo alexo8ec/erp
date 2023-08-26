@@ -74,15 +74,17 @@ $(document).ready(function () {
             }
         });
     });
-    var url = $('#controlador').val() + '/monthCharges';
+    /*var url = $('#controlador').val() + '/monthCharges';
     let monthCharges = $.getJSON(url, function (json, status) {
         return json;
-    });
-    console.log(item);return;
-  
+    });*/
+    let monthCharges = JSON.parse($('#ventas_mensuales').val());
+    console.log(item);
+    return;
+
     let arrayData2 = [];
     $.each(monthCharges, function (i, item) {
-        
+
         let array = [
             gd(item[0], item[1], item[2]),
             item[3]
