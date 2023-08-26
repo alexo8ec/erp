@@ -1,0 +1,23 @@
+<?php
+return [
+    'inicio' => 'Home',
+    'ventas' => 'Sales',
+    'crm' => 'Crm',
+    'inventario' => 'Inventory',
+    'configuraciones' => 'Settings',
+    'empresas' => 'Companies',
+    'contabilidad' => 'Accounting',
+    'reparaciones' => 'repairs',
+    'opciones' => 'Options',
+    'utilidades' => 'Utils',
+    'compras' => 'Shopping',
+    'tributacion' => 'Taxation',
+    'cajabancos' => 'Box-Banks',
+    'rrhh' => 'RRHH',
+    'catalogo' => 'Catalog',
+    'catalogocampana'=>'Campaign catalog',
+    'estadisticas'=>'Statistics',
+    'proveedores'=>'Providers',
+    'controlacceso'=>'Access control',
+    'billetera'=>'Wallet',
+];

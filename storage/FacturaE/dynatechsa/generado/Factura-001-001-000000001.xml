@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<factura id="comprobante" version="2.1.0">
+  <infoTributaria>
+    <ambiente>2</ambiente>
+    <tipoEmision>1</tipoEmision>
+    <razonSocial>Dynatech S a</razonSocial>
+    <nombreComercial>DYNATECH S</nombreComercial>
+    <ruc>0992956410001</ruc>
+    <claveAcceso>0205202301099295641000120010010000000010000000118</claveAcceso>
+    <codDoc>01</codDoc>
+    <estab>001</estab>
+    <ptoEmi>001</ptoEmi>
+    <secuencial>000000001</secuencial>
+    <dirMatriz>URB. CASTILLA MZ 21 V5</dirMatriz>
+  </infoTributaria>
+  <infoFactura>
+    <fechaEmision>02/05/2023</fechaEmision>
+    <dirEstablecimiento>Urb. Castilla mz 21 V 5</dirEstablecimiento>
+    <obligadoContabilidad>SI</obligadoContabilidad>
+    <tipoIdentificacionComprador>04</tipoIdentificacionComprador>
+    <razonSocialComprador>TATIANA KARLA  CORRALES RAMIREZ</razonSocialComprador>
+    <identificacionComprador>0924258858001</identificacionComprador>
+    <direccionComprador>FRANCO DAVILE 514 ENTRE SANTA ELENA Y 6 MARZO</direccionComprador>
+    <totalSinImpuestos>150.00</totalSinImpuestos>
+    <totalDescuento>0.00</totalDescuento>
+    <totalConImpuestos>
+      <totalImpuesto>
+        <codigo/>
+        <codigoPorcentaje>0</codigoPorcentaje>
+        <descuentoAdicional>0</descuentoAdicional>
+        <baseImponible>150.00</baseImponible>
+        <valor>18.00</valor>
+      </totalImpuesto>
+    </totalConImpuestos>
+    <propina>0.00</propina>
+    <importeTotal>168.00</importeTotal>
+    <moneda>DOLAR</moneda>
+    <pagos>
+      <pago>
+        <formaPago>01</formaPago>
+        <total>168.00</total>
+        <plazo>0</plazo>
+        <unidadTiempo>dias</unidadTiempo>
+      </pago>
+    </pagos>
+  </infoFactura>
+  <detalles>
+    <detalle>
+      <codigoPrincipal>000005</codigoPrincipal>
+      <codigoAuxiliar>000005</codigoAuxiliar>
+      <descripcion>Dominios Tercer Nivel  Restringidos gob.ec mil.ec </descripcion>
+      <cantidad>1</cantidad>
+      <precioUnitario>150.00</precioUnitario>
+      <descuento>0.00</descuento>
+      <precioTotalSinImpuesto>150.00</precioTotalSinImpuesto>
+      <detallesAdicionales>
+        <detAdicional nombre="Producto" valor=" Dominios Tercer Nivel  Restringidos gob.ec mil.ec"/>
+        <detAdicional nombre="Modelo" valor=" "/>
+        <detAdicional nombre="Marca" valor=" "/>
+      </detallesAdicionales>
+      <impuestos>
+        <impuesto>
+          <codigo/>
+          <codigoPorcentaje/>
+          <tarifa>0.00</tarifa>
+          <baseImponible>150.00</baseImponible>
+          <valor>18.00</valor>
+        </impuesto>
+      </impuestos>
+    </detalle>
+  </detalles>
+  <infoAdicional>
+    <campoAdicional nombre="Email">tkcr1985@gmail.com</campoAdicional>
+    <campoAdicional nombre="Teléfono">042410429 - 0990160269</campoAdicional>
+    <campoAdicional nombre="Dirección">FRANCO DAVILE 514 ENTRE SANTA ELENA Y 6 MARZO </campoAdicional>
+  </infoAdicional>
+</factura>
