@@ -14,7 +14,7 @@ class Cobros extends Model
 
     public static function cobroDiarioEstadistico()
     {
-        $arrayCobros = [];
+        $arrayCobros = '';
         $cobros = Cobros::selectRaw(
             'GROUP_CONCAT(YEAR(fecha_cobro) limit 1) as Y,
             GROUP_CONCAT(MONTH(fecha_cobro) limit 1) as m,
@@ -33,23 +33,27 @@ class Cobros extends Model
             $dia = $a + 1;
             foreach ($cobros as $sal) {
                 if ($sal->d == $dia) {
-                    $arrayCobro = [
+                    $arrayCobros .= '{"0":"' . $sal->Y . '","1":"' . $sal->m . '","2":"' . (string)$dia . '","3":"' . $sal->total . '"},';
+                    /*$arrayCobro = [
                         $sal->Y,
                         $sal->m,
                         (string)$dia,
                         $sal->total,
-                    ];
+                    ];*/
                 } else {
-                    $arrayCobro = [
+                    $arrayCobros .= '{"0":"' . session('periodo') . '","1":"' . date('m') . '","2":"' . (string)$dia . '","3":"0"},';
+                    /*$arrayCobro = [
                         (string)session('periodo'),
                         (string)date('m'),
                         (string)$dia,
                         (string)0,
-                    ];
+                    ];*/
                 }
-                array_push($arrayCobros, $arrayCobro);
+                //array_push($arrayCobros, $arrayCobro);
             }
         }
+        $arrayCobros = substr($arrayCobros, 0, -1);
+        return '[' . $arrayCobros . ']';
         return $arrayCobros;
     }
     public static function getCobros($id)
