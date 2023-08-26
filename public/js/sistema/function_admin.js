@@ -85,7 +85,6 @@ $(document).ready(function () {
             return JSON.parse(json);
         }
     });
-    console.log(monthCharges);return;
     let arrayData2 = [];
     $.each(monthCharges, function (i, item) {
         let array = [
@@ -94,7 +93,6 @@ $(document).ready(function () {
         ];
         arrayData2.push(array);
     });
-
     let monthSales = JSON.parse($('#cobros_mensuales').val());
     let arrayData3 = [];
     $.each(monthSales, function (i, item) {
@@ -106,6 +104,8 @@ $(document).ready(function () {
     });
     var data2 = arrayData2;
     var data3 = arrayData3;
+    console.log(data2, data3);
+    return;
     var dataset = [
         {
             label: "Ventas",
