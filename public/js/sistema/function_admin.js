@@ -7,7 +7,16 @@ $(document).ready(function () {
         ];
         arrayData2.push(array);
     });
-    console.log(arrayData2)
+    let monthCharge = JSON.parse($('#cobros_mensuales').val());
+    let arrayData3 = [];
+    $.each(monthCharge, function (i, item) {
+        let array = [
+            gd(item[0], item[1], item[2]),
+            item[3]
+        ];
+        arrayData3.push(array);
+    });
+    console.log(arrayData3)
     try {
         $('#tablaPlanCuentas').DataTable({
             language: {
