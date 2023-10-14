@@ -424,8 +424,6 @@
 <script src="{{asset('public/js/plugins/flot/jquery.flot.symbol.js')}}"></script>
 <script src="{{asset('public/js/plugins/flot/jquery.flot.time.js')}}"></script>
 
-<!-- Peity -->
-<script src="js/plugins/peity/jquery.peity.min.js"></script>
 
 <!-- Custom and plugin javascript -->
 <script src="js/inspinia.js"></script>
