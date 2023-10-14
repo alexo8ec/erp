@@ -20,7 +20,7 @@ class VentasCabecera extends Model
     public static function ventasDiariasEstadistico()
     {
         $arrayVentas = '';
-        //$arrayVentas = [];
+        $arrayVentas = [];
         $ventas = VentasCabecera::selectRaw(
             'GROUP_CONCAT(YEAR(fecha_emision_venta_cabecera) limit 1) as Y,
             GROUP_CONCAT(MONTH(fecha_emision_venta_cabecera) limit 1) as m,
@@ -40,30 +40,30 @@ class VentasCabecera extends Model
             if ($ventas->count() > 0) {
                 foreach ($ventas as $sal) {
                     if ($sal->d == $dia) {
-                        $arrayVentas .= '{"0":"' . $sal->Y . '","1":"' . $sal->m . '","2":"' . (string)$dia . '","3":"49.01"},';
-                        /*$arrayVenta = [
-                        $sal->Y,
-                        $sal->m,
-                        (string)$dia,
-                        $sal->total,
-                    ];*/
+                        //$arrayVentas .= '{"0":"' . $sal->Y . '","1":"' . $sal->m . '","2":"' . (string)$dia . '","3":"49.01"},';
+                        $arrayVenta = [
+                            $sal->Y,
+                            $sal->m,
+                            (string)$dia,
+                            $sal->total,
+                        ];
                     } else {
-                        $arrayVentas .= '{"0":"' . session('periodo') . '","1":"' . date('m') . '","2":"' . (string)$dia . '","3":"0"},';
-                        /*$arrayVenta = [
-                        (string)session('periodo'),
-                        (string)date('m'),
-                        (string)$dia,
-                        (string)0,
-                    ];*/
+                        //$arrayVentas .= '{"0":"' . session('periodo') . '","1":"' . date('m') . '","2":"' . (string)$dia . '","3":"0"},';
+                        $arrayVenta = [
+                            (string)session('periodo'),
+                            (string)date('m'),
+                            (string)$dia,
+                            (string)0,
+                        ];
                     }
-                    //array_push($arrayVentas, $arrayVenta);
+                    array_push($arrayVentas, $arrayVenta);
                 }
             } else {
                 $arrayVentas .= '{"0":"' . session('periodo') . '","1":"' . date('m') . '","2":"' . (string)$dia . '","3":"0"},';
             }
         }
-        $arrayVentas = substr($arrayVentas, 0, -1);
-        return '[' . $arrayVentas . ']';
+        /*$arrayVentas = substr($arrayVentas, 0, -1);
+        return '[' . $arrayVentas . ']';*/
         return $arrayVentas;
     }
     public static function ventasMes($anio)
