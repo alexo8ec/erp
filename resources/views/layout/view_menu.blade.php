@@ -26,22 +26,6 @@
                     FA+
                 </div>
             </li>
-            <?php
-            if (session('idEmpresa') != '' && session('estab') != '') {
-            ?>
-                <li align="center" style="border-radius: 5px;">
-                    <div class="form-group">
-                        <div class="col-lg-12">
-                            <div class="input-group date">
-                                <span class="input-group-addon"><i class="fa-duotone fa-magnifying-glass"></i></span>
-                                <input type="text" class="form-control" id="buscar" autocomplete="off" autofocus="false" />
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            <?php
-            }
-            ?>
             <li class="<?= config('data.controlador') == 'inicio' ? 'active' : ''; ?>">
                 <a href="{{ url('/') }}"><i class="fa fa-home"></i> <span class="nav-label">Inicio</span></a>
             </li>
