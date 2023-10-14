@@ -193,6 +193,6 @@ $(document).ready(function () {
     });
 });
 function gd(year, month, day) {
-return year;
+return month;
     return new Date(year, month - 1, day).getTime();
 }
