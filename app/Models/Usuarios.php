@@ -223,7 +223,7 @@ class Usuarios extends Model
                 $intervalo = $fecha1->diff($fecha2);
                 $minutosTras = $intervalo->format('%i');
                 if ($usuario->tiempo_login != null) {
-                    if ($usuario->intentos_login >= 5 && $minutosTras >= 5) {
+                    if ($usuario->intentos_login >= 3 && $minutosTras >= 5) {
                         $arrayLogin = [
                             'tiempo_login' => null,
                             'intentos_login' => 0
@@ -232,7 +232,7 @@ class Usuarios extends Model
                         return 'danger|Usuario bloqueado, intente dentro de 5 minutos';
                     }
                 } else {
-                    if ($usuario->intentos_login > 5) {
+                    if ($usuario->intentos_login > 3) {
                         $expDate = date('Y-m-d H:i:s');
                         $arrayLogin = [
                             'tiempo_login' => $expDate
