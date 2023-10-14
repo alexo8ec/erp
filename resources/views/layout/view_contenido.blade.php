@@ -416,16 +416,6 @@
 </div>
 
 
-
-<script src="js/plugins/pace/pace.min.js"></script>
-
-<!-- jQuery UI -->
-<script src="js/plugins/jquery-ui/jquery-ui.min.js"></script>
-
-<!-- Jvectormap -->
-<script src="js/plugins/jvectormap/jquery-jvectormap-2.0.2.min.js"></script>
-<script src="js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-
 <!-- EayPIE -->
 <script src="js/plugins/easypiechart/jquery.easypiechart.js"></script>
 
