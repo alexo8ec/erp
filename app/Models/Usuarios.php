@@ -222,19 +222,20 @@ class Usuarios extends Model
                 $fecha2 = new  DateTime($usuario->tiempo_login);
                 $intervalo = $fecha1->diff($fecha2);
                 $minutosTras = $intervalo->format('%i');
-                echo '<pre>';
-                print_r($minutosTras);
-                exit;
                 if ($usuario->tiempo_login != null) {
                     if ($usuario->intentos_login >= 5 && $minutosTras >= 5) {
                         $arrayLogin = [
                             'tiempo_login' => null,
                             'intentos_login' => 0
                         ];
-                        Usuarios::where('usuario', $r->usuario)->update('bm_usuario', $arrayLogin);
                     } else {
                         return 'danger|Usuario bloqueado, intente dentro de 5 minutos';
                     }
+                } else {
+                    $arrayLogin = [
+                        'intentos_login' => $usuario->intentos_login + 1
+                    ];
+                    Usuarios::where('usuario', $r->usuario)->update('bm_usuario', $arrayLogin);
                 }
 
                 if ($usuario->estado_usuario == 0) {
