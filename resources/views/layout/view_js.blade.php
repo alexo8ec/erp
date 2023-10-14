@@ -17,6 +17,8 @@
 <script src="{{ url('/') }}/public/js/inspinia.js"></script>
 <script src="{{ url('/') }}/public/js/plugins/pace/pace.min.js"></script>
 
+<script src="{{ url('/') }}/public/js/plugins/iCheck/icheck.min.js"></script>
+
 <script src="{{ url('/') }}/public/js/plugins/jquery-ui/jquery-ui.min.js"></script>
 <script src="{{asset('public/js/plugins/jvectormap/jquery-jvectormap-2.0.2.min.js')}}"></script>
 <script src="{{asset('public/js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
