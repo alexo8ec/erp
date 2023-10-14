@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use DateTime;
 use Exception;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
@@ -217,6 +218,22 @@ class Usuarios extends Model
             return $arrayResultado;
         } else {
             if ($usuario != '') {
+                $fecha1 = new DateTime();
+                $fecha2 = new  DateTime($usuario->tiempo_login);
+                $intervalo = $fecha1->diff($fecha2);
+                $minutosTras = $intervalo->format('%i');
+                if ($usuario->tiempo_login != null) {
+                    if ($usuario->intentos_login >= 5 && $minutosTras >= 5) {
+                        $arrayLogin = [
+                            'tiempo_login' => null,
+                            'intentos_login' => 0
+                        ];
+                        Usuarios::where('usuario', $r->usuario)->update('bm_usuario', $arrayLogin);
+                    } else {
+                        return 'danger|Usuario bloqueado, intente dentro de 5 minutos';
+                    }
+                }
+
                 if ($usuario->estado_usuario == 0) {
                     $mensaje = 'danger|Usuario desactivado';
                 }
