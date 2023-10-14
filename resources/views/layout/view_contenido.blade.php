@@ -434,6 +434,9 @@
 <script src="js/plugins/jvectormap/jquery-jvectormap-2.0.2.min.js"></script>
 <script src="js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
 
+<!-- EayPIE -->
+<script src="{{asset('public/js/plugins/easypiechart/jquery.easypiechart.js')}}"></script>
+
 <!-- Sparkline -->
 <script src="js/plugins/sparkline/jquery.sparkline.min.js"></script>
 
