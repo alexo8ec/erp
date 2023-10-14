@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    console.log($('#ventas_mensuales').val());
     try {
         $('#tablaPlanCuentas').DataTable({
             language: {
@@ -53,7 +54,7 @@ $(document).ready(function () {
                 }
             ]
         });
-        console.log($('#ventas_mensuales').val());
+       
         let monthSales = JSON.parse($('#ventas_mensuales').val());
         console.log(monthSales)
         let arrayData2 = [];
