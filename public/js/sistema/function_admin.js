@@ -1,6 +1,6 @@
 $(document).ready(function () {
     let monthSales = JSON.parse($('#ventas_mensuales').val());
-    console.log(monthSales);
+        console.log(monthSales)
     try {
         $('#tablaPlanCuentas').DataTable({
             language: {
@@ -56,8 +56,7 @@ $(document).ready(function () {
             ]
         });
        
-        let monthSales = JSON.parse($('#ventas_mensuales').val());
-        console.log(monthSales)
+        
         let arrayData2 = [];
         $.each(monthSales, function (i, item) {
             let array = [
