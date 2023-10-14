@@ -35,7 +35,7 @@ if (config('data.controlador') != null && config('data.controlador') == 'admin')
 }
 ?>
 
-<!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js"></script>
 
 <script src="{{ url('/') }}/public/js/plugins/toastr/toastr.min.js"></script>
 <script src="{{ url('/') }}/public/js/plugins/datapicker/bootstrap-datepicker.js"></script>
@@ -44,7 +44,7 @@ if (config('data.controlador') != null && config('data.controlador') == 'admin')
 <script src="{{ url('/') }}/public/js/plugins/ladda/ladda.min.js"></script>
 <script src="{{ url('/') }}/public/js/plugins/ladda/ladda.jquery.min.js"></script>
 
-<script src="{{ url('/') }}/public/js/plugins/fullcalendar/moment.min.js"></script> -->
+<script src="{{ url('/') }}/public/js/plugins/fullcalendar/moment.min.js"></script>
 
 
 
