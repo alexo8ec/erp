@@ -415,15 +415,6 @@
     </div>
 </div>
 
-<!-- Flot -->
-<script src="js/plugins/flot/jquery.flot.js"></script>
-<script src="js/plugins/flot/jquery.flot.tooltip.min.js"></script>
-<script src="js/plugins/flot/jquery.flot.spline.js"></script>
-<script src="js/plugins/flot/jquery.flot.resize.js"></script>
-<script src="js/plugins/flot/jquery.flot.pie.js"></script>
-<script src="js/plugins/flot/jquery.flot.symbol.js"></script>
-<script src="js/plugins/flot/jquery.flot.time.js"></script>
-
 <!-- Peity -->
 <script src="js/plugins/peity/jquery.peity.min.js"></script>
 <script src="js/demo/peity-demo.js"></script>
