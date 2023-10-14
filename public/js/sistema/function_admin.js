@@ -56,7 +56,7 @@ $(document).ready(function () {
             ]
         });
        
-        
+        let monthSales = JSON.parse($('#ventas_mensuales').val());
         let arrayData2 = [];
         $.each(monthSales, function (i, item) {
             let array = [
