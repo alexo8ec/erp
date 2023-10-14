@@ -69,7 +69,7 @@ class VentasCabecera extends Model
         }
         /*$arrayVentas = substr($arrayVentas, 0, -1);
         return '[' . $arrayVentas . ']';*/
-        return $arrayVentas;
+        return json_encode($arrayVentas);
     }
     public static function ventasMes($anio)
     {
