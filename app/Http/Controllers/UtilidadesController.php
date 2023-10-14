@@ -14,6 +14,7 @@ use App\Models\Provincias;
 use App\Models\SubCategorias;
 use App\Models\Usuarios;
 use App\Models\Utilidades;
+use App\Models\VentasCabecera;
 use Illuminate\Http\Request;
 
 class UtilidadesController extends Controller
@@ -74,6 +75,11 @@ class UtilidadesController extends Controller
             return Categorias::importarcategorias();
         } elseif ($r->submodulo == 'importarsubcategorias') {
             return SubCategorias::importarsubcategorias();
+        } elseif ($r->submodulo == 'importarventas') {
+            $ventas = VentasCabecera::importarventas();
+            echo '<pre>';
+            print_r($ventas);
+            exit;
         } else {
             return view('errors/401', $data);
         }
