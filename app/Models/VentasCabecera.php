@@ -25,7 +25,7 @@ class VentasCabecera extends Model
             'GROUP_CONCAT(YEAR(fecha_emision_venta_cabecera) limit 1) as Y,
             GROUP_CONCAT(MONTH(fecha_emision_venta_cabecera) limit 1) as m,
             GROUP_CONCAT(DAY(fecha_emision_venta_cabecera) limit 1) as d,
-            SUM(total_venta_cabecera) as total'
+            SUM(subtotal0_venta_cabecera+subtotal12_venta_cabecera) as total'
         )
             ->where('id_empresa_venta_cabecera', session('idEmpresa'))
             ->whereYear('fecha_emision_venta_cabecera', session('periodo'))
