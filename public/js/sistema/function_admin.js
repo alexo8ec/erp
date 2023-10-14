@@ -54,6 +54,7 @@ $(document).ready(function () {
             ]
         });
         let monthSales = JSON.parse($('#ventas_mensuales').val());
+        console.log(monthSales)
         let arrayData2 = [];
         $.each(monthSales, function (i, item) {
             let array = [
@@ -86,7 +87,7 @@ $(document).ready(function () {
                     barWidth: 24 * 60 * 60 * 600,
                     lineWidth: 0
                 }
-    
+
             }, {
                 label: "Cobros",
                 data: data3,
