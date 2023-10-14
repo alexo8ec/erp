@@ -222,6 +222,9 @@ class Usuarios extends Model
                 $fecha2 = new  DateTime($usuario->tiempo_login);
                 $intervalo = $fecha1->diff($fecha2);
                 $minutosTras = $intervalo->format('%i');
+                echo '<pre>';
+                print_r($minutosTras);
+                exit;
                 if ($usuario->tiempo_login != null) {
                     if ($usuario->intentos_login >= 5 && $minutosTras >= 5) {
                         $arrayLogin = [
