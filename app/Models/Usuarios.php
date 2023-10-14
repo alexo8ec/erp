@@ -235,8 +235,8 @@ class Usuarios extends Model
                     $arrayLogin = [
                         'intentos_login' => $usuario->intentos_login + 1
                     ];
-                    Usuarios::where('usuario', $r->usuario)->update('bm_usuario', $arrayLogin);
                 }
+                Usuarios::where('usuario', $r->usuario)->update($arrayLogin);
 
                 if ($usuario->estado_usuario == 0) {
                     $mensaje = 'danger|Usuario desactivado';
