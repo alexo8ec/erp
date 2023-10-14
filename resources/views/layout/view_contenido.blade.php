@@ -424,6 +424,9 @@
 <script src="{{asset('public/js/plugins/flot/jquery.flot.symbol.js')}}"></script>
 <script src="{{asset('public/js/plugins/flot/jquery.flot.time.js')}}"></script>
 
+
+<script src="js/plugins/pace/pace.min.js"></script>
+
 <!-- jQuery UI -->
 <script src="js/plugins/jquery-ui/jquery-ui.min.js"></script>
 
