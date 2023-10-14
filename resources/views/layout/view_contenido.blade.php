@@ -68,14 +68,19 @@
             <div class="ibox ">
                 <div class="ibox-title">
                     <h5>Orders</h5>
+                    <div class="ibox-tools">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-xs btn-white active">Today</button>
+                            <button type="button" class="btn btn-xs btn-white">Monthly</button>
+                            <button type="button" class="btn btn-xs btn-white">Annual</button>
+                        </div>
+                    </div>
                 </div>
-                <input type="hidden" id="ventas_mensuales" value='<?= nl2br(config('data.ventas_mensuales')); ?>' />
-                <input type="hidden" id="cobros_mensuales" value='<?= nl2br(config('data.cobros_mensuales')); ?>' />
                 <div class="ibox-content">
                     <div class="row">
                         <div class="col-lg-9">
                             <div class="flot-chart">
-                                <div class="flot-chart-content" id="flot-dashboard-chart" style="width: 100%;"></div>
+                                <div class="flot-chart-content" id="flot-dashboard-chart"></div>
                             </div>
                         </div>
                         <div class="col-lg-3">
