@@ -3,8 +3,7 @@ $(document).ready(function () {
     let arrayData2 = [];
     $.each(monthSales, function (i, item) {
         let array = [
-            gd(item[0], item[1], item[2]),
-            item[3]
+            gd(item[0], item[1], item[2]),item[3]
         ];
         arrayData2.push(array);
     });
@@ -167,9 +166,6 @@ $(document).ready(function () {
                 borderWidth: 0
             }
         };
-        function gd(year, month, day) {
-            return new Date(year, month - 1, day).getTime();
-        }
         var previousPoint = null,
             previousLabel = null;
         $('#flot-dashboard-chart').css('width', '100%');
@@ -196,3 +192,7 @@ $(document).ready(function () {
         });
     });
 });
+function gd(year, month, day) {
+return year;
+    return new Date(year, month - 1, day).getTime();
+}
