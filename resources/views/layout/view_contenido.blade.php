@@ -416,17 +416,7 @@
 </div>
 
 
-<script src="{{asset('public/js/plugins/flot/jquery.flot.js')}}"></script>
-<script src="{{asset('public/js/plugins/flot/jquery.flot.tooltip.min.js')}}"></script>
-<script src="{{asset('public/js/plugins/flot/jquery.flot.spline.js')}}"></script>
-<script src="{{asset('public/js/plugins/flot/jquery.flot.resize.js')}}"></script>
-<script src="{{asset('public/js/plugins/flot/jquery.flot.pie.js')}}"></script>
-<script src="{{asset('public/js/plugins/flot/jquery.flot.symbol.js')}}"></script>
-<script src="{{asset('public/js/plugins/flot/jquery.flot.time.js')}}"></script>
 
-
-<!-- Custom and plugin javascript -->
-<script src="js/inspinia.js"></script>
 <script src="js/plugins/pace/pace.min.js"></script>
 
 <!-- jQuery UI -->
