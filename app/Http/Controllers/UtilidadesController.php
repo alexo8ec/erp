@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Calendario;
 use App\Models\Categorias;
 use App\Models\Ciudades;
+use App\Models\Clientes;
 use App\Models\Empresas;
 use App\Models\Info;
 use App\Models\Modulos;
@@ -75,6 +76,8 @@ class UtilidadesController extends Controller
             return Categorias::importarcategorias();
         } elseif ($r->submodulo == 'importarsubcategorias') {
             return SubCategorias::importarsubcategorias();
+        } elseif ($r->submodulo == 'importarclientes') {
+            return Clientes::importarclientes();
         } elseif ($r->submodulo == 'importarventas') {
             $ventas = VentasCabecera::importarventas();
             echo '<pre>';
