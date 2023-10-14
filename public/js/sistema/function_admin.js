@@ -38,8 +38,8 @@ $(document).ready(function () {
 
     var dataset = [
         {
-            label: "Number of orders",
-            data: data3,
+            label: "Ventas",
+            data: data2,
             color: "#1ab394",
             bars: {
                 show: true,
@@ -49,8 +49,8 @@ $(document).ready(function () {
             }
 
         }, {
-            label: "Payments",
-            data: data2,
+            label: "Cobros",
+            data: data3,
             yaxis: 2,
             color: "#1C84C6",
             lines: {
