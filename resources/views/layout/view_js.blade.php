@@ -26,6 +26,8 @@
 <script src="{{asset('public/js/plugins/easypiechart/jquery.easypiechart.js')}}"></script>
 <script src="{{asset('public/js/plugins/sparkline/jquery.sparkline.min.js')}}"></script>
 
+<script src="{{ url('/') }}/public/js/plugins/select2/select2.full.min.js"></script>
+
 
 <?php
 if (config('data.controlador') != null && config('data.controlador') == 'admin') {
@@ -33,7 +35,7 @@ if (config('data.controlador') != null && config('data.controlador') == 'admin')
 ?>
 
 <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js"></script>
-<script src="{{ url('/') }}/public/js/plugins/select2/select2.full.min.js"></script>
+
 <script src="{{ url('/') }}/public/js/plugins/toastr/toastr.min.js"></script>
 <script src="{{ url('/') }}/public/js/plugins/datapicker/bootstrap-datepicker.js"></script>
 
