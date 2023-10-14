@@ -232,9 +232,16 @@ class Usuarios extends Model
                         return 'danger|Usuario bloqueado, intente dentro de 5 minutos';
                     }
                 } else {
-                    $arrayLogin = [
-                        'intentos_login' => $usuario->intentos_login + 1
-                    ];
+                    if ($usuario->intentos_login > 5) {
+                        $expDate = date('Y-m-d H:i:s');
+                        $arrayLogin = [
+                            'tiempo_login' => $expDate
+                        ];
+                    } else {
+                        $arrayLogin = [
+                            'intentos_login' => $usuario->intentos_login + 1
+                        ];
+                    }
                 }
                 Usuarios::where('usuario', $r->usuario)->update($arrayLogin);
 
