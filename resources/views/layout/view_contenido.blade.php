@@ -428,9 +428,6 @@
 <script src="js/plugins/peity/jquery.peity.min.js"></script>
 <script src="js/demo/peity-demo.js"></script>
 
-<!-- Custom and plugin javascript -->
-<script src="js/inspinia.js"></script>
-<script src="js/plugins/pace/pace.min.js"></script>
 
 <!-- jQuery UI -->
 <script src="js/plugins/jquery-ui/jquery-ui.min.js"></script>
