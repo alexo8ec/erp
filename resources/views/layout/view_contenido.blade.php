@@ -414,17 +414,6 @@
         </div>
     </div>
 </div>
-
-
-<!-- EayPIE -->
-<script src="js/plugins/easypiechart/jquery.easypiechart.js"></script>
-
-<!-- Sparkline -->
-<script src="js/plugins/sparkline/jquery.sparkline.min.js"></script>
-
-<!-- Sparkline demo data  -->
-<script src="js/demo/sparkline-demo.js"></script>
-
 <script>
     $(document).ready(function() {
         $('.chart').easyPieChart({
