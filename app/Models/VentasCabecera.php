@@ -59,7 +59,12 @@ class VentasCabecera extends Model
                     array_push($arrayVentas, $arrayVenta);
                 }
             } else {
-                $arrayVentas .= '{"0":"' . session('periodo') . '","1":"' . date('m') . '","2":"' . (string)$dia . '","3":"0"},';
+                //$arrayVentas .= '{"0":"' . session('periodo') . '","1":"' . date('m') . '","2":"' . (string)$dia . '","3":"0"},';
+                $arrayVenta = [
+                    0 => session('periodo'),
+                    1 => date('m'),
+                    2 => (string)$dia,
+                ];
             }
         }
         /*$arrayVentas = substr($arrayVentas, 0, -1);
