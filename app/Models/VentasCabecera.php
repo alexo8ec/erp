@@ -281,7 +281,7 @@ class VentasCabecera extends Model
                     'importFact' => 0
                 ]);
             Clientes::importarClientes();
-            $result = array('code' => 200, 'state' => true, 'data' => '', 'message' => 'no|' . $e->getMessage() . 'CI: ' . $cedulaFact, 'modelo' => VentasCabecera::$modelo, 'linea' => $e->getLine());
+            $result = array('code' => 200, 'state' => true, 'data' => '', 'message' => 'no|' . $e->getMessage() . 'CI: ' . $cedulaFact, 'modelo' => VentasCabecera::$modelo, 'linea' => $e->getLine(), 'archivo' => $e->getFile());
             return json_encode($result);
         }
         if ($cont > 0) {
