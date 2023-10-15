@@ -63,22 +63,26 @@ $(document).ready(function () {
                     data: 'id_venta_cabecera'
                 },
                 {
+                    data: 'id_venta_cabecera',
                     className: 'text-center',
                     render: function (data, type, row) {
                         return PadLeft(row.establecimiento_venta_cabecera, 3, 0) + '-' + PadLeft(row.emision_venta_cabecera, 3, 0) + '-' + PadLeft(row.num_factura_venta_cabecera, 9, 0);
                     }
                 },
                 {
+                    data: 'id_venta_cabecera',
                     render: function (data, type, row) {
                         return row.nombre_persona + ' ' + row.apellido_persona;
                     }
                 },
                 {
+                    data: 'id_venta_cabecera',
                     className: 'text-center',
                     render: function (data, type, row) {
                         return row.estado_sri_venta_cabecera;
                     }
                 }, {
+                    data: 'id_venta_cabecera',
                     className: 'text-right',
                     render: function (data, type, row) {
                         return parseFloat(row.total_venta_cabecera).toFixed(2);
@@ -90,6 +94,7 @@ $(document).ready(function () {
                     className: 'text-center',
                     data: 'fecha_emision_venta_cabecera'
                 }, {
+                    data: 'id_venta_cabecera',
                     className: 'text-center',
                     render: function (data, type, row) {
                         return row.estado_venta_cabecera;
