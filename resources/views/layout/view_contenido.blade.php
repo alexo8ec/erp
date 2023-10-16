@@ -140,6 +140,7 @@
                                 </thead>
                                 <tbody>
                                     <?php
+                                    echo session('periodo');exit;
                                     if (config('data.ultimas_ventas') != null) {
                                         foreach (config('data.ultimas_ventas') as $venta) {
                                             $estado = '<small>Pending...</small>';
