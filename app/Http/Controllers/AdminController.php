@@ -88,6 +88,7 @@ class AdminController extends Controller
                         $data['cobros_mensuales'] = Cobros::cobroDiarioEstadistico();
                         /*$dato['total_ventas_mensual'] = Sales::where('status_sale', '1')->where('id_company_sale', $r->id_company)->whereYear('date_issue_sale', $r->periodo)->whereMonth('date_issue_sale',  date('m'))->sum('net_sale');
                         $dato['total_cobros_mensual'] = Charges::where('status_charge', '1')->where('id_company_charge', $r->id_company)->whereYear('date_issue_charge', $r->periodo)->whereMonth('date_issue_charge',  date('m'))->sum('value_charge');*/
+                        $data['ultimas_ventas'] = VentasCabecera::ultimasVentas();
                         $data['title'] = 'Bienvenid@ | ' . $info->nombre_info . ' V' . $info->mayor_info . '.' . $info->menor_info;
                         $data['contenido'] = 'layout.view_contenido';
                     }

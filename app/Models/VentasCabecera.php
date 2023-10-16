@@ -17,6 +17,10 @@ class VentasCabecera extends Model
 
     private static $modelo = 'Ventas';
 
+    public static function ultimasVentas()
+    {
+        return VentasCabecera::where('fecha_emision_venta_cabecera', date('Y'))->orderBy('fecha_emision_venta_cabecera', 'desc')->limit(6)->get();
+    }
     public static function ventasDiariasEstadistico()
     {
         $arrayVentas = '';
