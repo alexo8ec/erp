@@ -132,6 +132,7 @@ class VentasCabecera extends Model
             ->orderBy('vc.emision')
             ->limit(300)
             ->get();
+            echo '<pre>';print_r($ventasImp);exit;
         $cont = 0;
         DB::beginTransaction();
         $idClienteFact = '';
@@ -182,7 +183,6 @@ class VentasCabecera extends Model
                             $enComprobante = $rowv->encomprobante;
                         }
                     }
-
                     $arrayVentaCabecera = [
                         'num_factura_venta_cabecera' => $row->num_factura,
                         'establecimiento_venta_cabecera' => $row->establecimiento,
