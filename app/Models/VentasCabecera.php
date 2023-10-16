@@ -125,6 +125,7 @@ class VentasCabecera extends Model
             ->whereNotNull('vc.num_factura')
             ->where('vc.fecha_venta', '<>', '0000-00-00 00:00:00')
             ->whereYear('vc.fecha_venta', date('Y'))
+            ->whereMonth('vc.fecha_venta', date('m'))
             ->orderBy('vc.id_empresa')
             ->orderBy('vc.establecimiento')
             ->orderBy('vc.num_factura')
