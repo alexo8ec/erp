@@ -145,7 +145,7 @@
                                             echo '<tr>
                                                 <td><small>Pending...</small></td>
                                                 <td><i class="fa fa-clock-o"></i> ' . date('d.m.Y', strtotime($venta->fecha_emision_venta_cabecera)) . '</td>
-                                                <td>' . $venta->establecimiento_venta_cabecera . '-' . $venta->emision_venta_cabecera . '-' . str_pad($venta->num_factura_venta_cabecera, 0, 9, STR_PAD_LEFT) . '</td>
+                                                <td>' . $venta->establecimiento_venta_cabecera . '-' . $venta->emision_venta_cabecera . '-' . str_pad($venta->num_factura_venta_cabecera, 9, 0, STR_PAD_LEFT) . '</td>
                                                 <td class="text-navy"> <i class="fa fa-level-up"></i> 24% </td>
                                             </tr>';
                                         }
