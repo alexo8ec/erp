@@ -40,10 +40,14 @@ class VentasCabecera extends Model
             ->where('id_empresa_venta_cabecera', session('idEmpresa'))
             ->whereYear('fecha_emision_venta_cabecera', session('periodo'))
             ->whereMonth('fecha_emision_venta_cabecera', date('m'))
+            ->where('establecimiento_venta_cabecera', session('estab'))
+            ->where('emision_venta_cabecera', session('emisi'))
             ->where('estado_venta_cabecera', 1)
             ->groupBy(DB::raw('DAY(fecha_emision_venta_cabecera)'))
             ->get();
-            echo '<pre>';print_r($ventas);exit;
+        echo '<pre>';
+        print_r($ventas);
+        exit;
         $number = cal_days_in_month(CAL_GREGORIAN, date('m'), session('periodo'));
         for ($i = 0; $i < $number; $i++) {
             $a = $i;
