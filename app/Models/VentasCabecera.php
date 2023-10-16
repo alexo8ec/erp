@@ -21,6 +21,7 @@ class VentasCabecera extends Model
     {
         return VentasCabecera::whereYear('fecha_emision_venta_cabecera', date('Y'))
             ->where('establecimiento_venta_cabecera', session('estab'))
+            ->where('emision_venta_cabecera', session('emisi'))
             ->orderBy('fecha_emision_venta_cabecera', 'desc')
             ->limit(6)
             ->get();
