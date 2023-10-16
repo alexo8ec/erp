@@ -132,7 +132,6 @@ class VentasCabecera extends Model
             ->orderBy('vc.emision')
             ->limit(300)
             ->get();
-            echo '<pre>';print_r($ventasImp);exit;
         $cont = 0;
         DB::beginTransaction();
         $idClienteFact = '';
@@ -168,7 +167,6 @@ class VentasCabecera extends Model
                     $fechaVenta = '';
                     if (count($ventas) > 0) {
                         foreach ($ventas as $rowv) {
-
                             $totalItems += $rowv->cantidad;
                             $subtotal = $rowv->cantidad * $rowv->p_lista;
                             $iva = (((($rowv->cantidad * $rowv->p_lista) - $rowv->descuento_individual)) * $rowv->iva) / 100;
@@ -205,7 +203,10 @@ class VentasCabecera extends Model
                         'id_usuario_creacion_venta_cabecera' => session('idUsuario'),
                         'id_usuario_modificacion_venta_cabecera' => session('idUsuario'),
                     ];
-
+                    echo '<pre>';
+                    print_r($arrayVentaCabecera);
+                    DB::rollBack();
+                    exit;
                     $idVenta = VentasCabecera::insertGetId($arrayVentaCabecera);
 
                     $totalItems = 0;
