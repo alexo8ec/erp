@@ -128,7 +128,7 @@ class VentasCabecera extends Model
             ->orderBy('vc.establecimiento')
             ->orderBy('vc.num_factura')
             ->orderBy('vc.emision')
-            ->limit(100)
+            ->limit(300)
             ->get();
         $cont = 0;
         DB::beginTransaction();
