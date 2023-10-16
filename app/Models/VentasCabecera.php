@@ -45,9 +45,6 @@ class VentasCabecera extends Model
             ->where('estado_venta_cabecera', 1)
             ->groupBy(DB::raw('DAY(fecha_emision_venta_cabecera)'))
             ->get();
-        echo '<pre>';
-        print_r($ventas);
-        exit;
         $number = cal_days_in_month(CAL_GREGORIAN, date('m'), session('periodo'));
         for ($i = 0; $i < $number; $i++) {
             $a = $i;
