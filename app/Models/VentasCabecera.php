@@ -20,6 +20,7 @@ class VentasCabecera extends Model
     public static function ultimasVentas()
     {
         return VentasCabecera::whereYear('fecha_emision_venta_cabecera', date('Y'))
+            ->where('establecimiento_venta_cabecera', session('estab'))
             ->orderBy('fecha_emision_venta_cabecera', 'desc')
             ->limit(6)
             ->get();
