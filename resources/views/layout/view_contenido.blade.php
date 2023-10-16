@@ -141,7 +141,7 @@
                                 <tbody>
                                     <?php
                                     echo '<pre>';
-                                    print_r(session());
+                                    print_r(session('estab'));
                                     exit;
                                     if (config('data.ultimas_ventas') != null) {
                                         foreach (config('data.ultimas_ventas') as $venta) {
