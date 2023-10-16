@@ -294,6 +294,14 @@ class VentasCabecera extends Model
                     'importFact' => 0
                 ]);
             Clientes::importarClientes();
+            foreach ($ventasImp as $venerror) {
+                DB::connection('FAC')
+                    ->table('bm_cliente')
+                    ->where('id_cliente', $venerror->id_cliente)
+                    ->update([
+                        'importFact' => 0
+                    ]);
+            }
             $result = array('code' => 200, 'state' => true, 'data' => '', 'message' => 'no|' . $e->getMessage() . 'CI: ' . $cedulaFact, 'modelo' => VentasCabecera::$modelo, 'linea' => $e->getLine(), 'archivo' => $e->getFile());
             return json_encode($result);
         }
