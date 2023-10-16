@@ -145,6 +145,10 @@
                                             $estado = '<small>Pending...</small>';
                                             if ($venta->estado_venta_cabecera == 1) {
                                                 $estado = '<span class="label label-primary">Autorizado</span>';
+                                            } elseif ($venta->estado_venta_cabecera == 2) {
+                                                $estado = '<span class="label label-warning">Anulada</span>';
+                                            } elseif ($venta->estado_venta_cabecera == 3) {
+                                                $estado = '<span class="label label-danger">Error</span>';
                                             }
                                             echo '<tr>
                                                 <td>' . $estado . '</td>
