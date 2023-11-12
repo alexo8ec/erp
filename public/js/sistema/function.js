@@ -215,7 +215,6 @@ function designarempresa(id, estado) {
         }
     });
 }
-
 function getFechaMysql(fecha, horas = null, separadores = '.') {
     var hora = '';
     if (fecha != '') {
