@@ -27,10 +27,9 @@ class VentasCabecera extends Model
             ->limit(6)
             ->get();
     }
-    public static function ventasDiariasEstadistico()
+    public static function ventasDiariasEstadistico_()
     {
         $arrayVentas = '';
-        //$arrayVentas = [];
         $ventas = VentasCabecera::selectRaw(
             'GROUP_CONCAT(YEAR(fecha_emision_venta_cabecera) limit 1) as Y,
             GROUP_CONCAT(MONTH(fecha_emision_venta_cabecera) limit 1) as m,
@@ -53,22 +52,9 @@ class VentasCabecera extends Model
                 foreach ($ventas as $sal) {
                     if ($sal->d == $dia) {
                         $arrayVentas .= '{"0":"' . $sal->Y . '","1":"' . $sal->m . '","2":"' . (string)$dia . '","3":' . $sal->total . '},';
-                        /*$arrayVenta = [
-                        $sal->Y,
-                        $sal->m,
-                        (string)$dia,
-                        $sal->total,
-                    ];*/
                     } else {
                         $arrayVentas .= '{"0":"' . session('periodo') . '","1":"' . date('m') . '","2":"' . (string)$dia . '","3":"0"},';
-                        /*$arrayVenta = [
-                        (string)session('periodo'),
-                        (string)date('m'),
-                        (string)$dia,
-                        (string)0,
-                    ];*/
                     }
-                    //array_push($arrayVentas, $arrayVenta);
                 }
             } else {
                 $arrayVentas .= '{"0":"' . session('periodo') . '","1":"' . date('m') . '","2":"' . (string)$dia . '","3":"0"},';
@@ -76,6 +62,39 @@ class VentasCabecera extends Model
         }
         $arrayVentas = substr($arrayVentas, 0, -1);
         return '[' . $arrayVentas . ']';
+    }
+    public static function ventasDiariasEstadistico()
+    {
+        $ventas = VentasCabecera::selectRaw('
+            YEAR(fecha_emision_venta_cabecera) as Y,
+            MONTH(fecha_emision_venta_cabecera) as m,
+            DAY(fecha_emision_venta_cabecera) as d,
+            SUM(subtotal0_venta_cabecera + subtotal12_venta_cabecera) as total
+        ')
+            ->where('id_empresa_venta_cabecera', session('idEmpresa'))
+            ->whereYear('fecha_emision_venta_cabecera', session('periodo'))
+            ->whereMonth('fecha_emision_venta_cabecera', date('m'))
+            ->where('establecimiento_venta_cabecera', session('estab'))
+            ->where('emision_venta_cabecera', session('emisi'))
+            ->where('estado_venta_cabecera', 1)
+            ->groupBy('d')
+            ->pluck('total', 'd')
+            ->all();
+
+        $number = cal_days_in_month(CAL_GREGORIAN, date('m'), session('periodo'));
+
+        $arrayVentas = [];
+        for ($dia = 1; $dia <= $number; $dia++) {
+            $total = isset($ventas[$dia]) ? $ventas[$dia] : 0;
+            $arrayVentas[] = [
+                '0' => session('periodo'),
+                '1' => date('m'),
+                '2' => (string)$dia,
+                '3' => $total,
+            ];
+        }
+
+        return json_encode($arrayVentas);
     }
     public static function ventasMes($anio)
     {
