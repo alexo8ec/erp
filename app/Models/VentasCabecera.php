@@ -93,9 +93,6 @@ class VentasCabecera extends Model
                 '3' => $total,
             ];
         }
-        echo '<pre>';
-        print_r($arrayVentas);
-        exit;
         return json_encode($arrayVentas);
     }
     public static function ventasMes($anio)
