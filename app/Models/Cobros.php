@@ -61,6 +61,9 @@ class Cobros extends Model
             ->groupBy('Y', 'm', 'd')
             ->pluck('total', 'd')
             ->all();
+        echo '<pre>';
+        print_r($cobros);
+        exit;
         $number = cal_days_in_month(CAL_GREGORIAN, date('m'), session('periodo'));
 
         $arrayCobros = [];
