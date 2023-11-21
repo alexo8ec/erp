@@ -59,7 +59,8 @@ class Cobros extends Model
             ->whereMonth('fecha_cobro', date('m'))
             ->where('estado_cobro', 1)
             ->groupBy('Y', 'm', 'd')
-            ->get();
+            ->pluck('total', 'd')
+            ->all();
         $number = cal_days_in_month(CAL_GREGORIAN, date('m'), session('periodo'));
 
         $arrayCobros = [];
