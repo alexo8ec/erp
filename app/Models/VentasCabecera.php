@@ -103,11 +103,12 @@ class VentasCabecera extends Model
     }
     public static function totalVentas()
     {
-        //SELECT IFNULL(SUM(subtotal0_venta_cabecera),0)+IFNULL(SUM(subtotal12_venta_cabecera),0) AS total FROM db_cabecera_ventas WHERE id_empresa_venta_cabecera=70 AND establecimiento_venta_cabecera=001 AND emision_venta_cabecera=001 AND YEAR(fecha_emision_venta_cabecera)=2023;
-        return VentasCabecera::selectRaw('IFNULL(SUM(subtotal0_venta_cabecera),0)+IFNULL(SUM(subtotal12_venta_cabecera),0)-IFNULL(SUM(descuento_venta_cabecera),0) AS total')
-            ->where('id_empresa_venta_cabecera', session('idEmpresa'))
-            ->where('establecimiento_venta_cabecera', session('estab'))
-            ->where('emision_venta_cabecera', session('emisi'))
+        return VentasCabecera::selectRaw('IFNULL(SUM(subtotal0_venta_cabecera), 0) + IFNULL(SUM(subtotal12_venta_cabecera), 0) - IFNULL(SUM(descuento_venta_cabecera), 0) AS total')
+            ->where([
+                ['id_empresa_venta_cabecera', session('idEmpresa')],
+                ['establecimiento_venta_cabecera', session('estab')],
+                ['emision_venta_cabecera', session('emisi')],
+            ])
             ->whereYear('fecha_emision_venta_cabecera', session('periodo'))
             ->first();
     }
