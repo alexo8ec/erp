@@ -44,11 +44,7 @@ class Cobros extends Model
             }
         }
         $arrayCobros = substr($arrayCobros, 0, -1);
-        echo '<pre>';
-        print_r($arrayCobros);
-        exit;
         return '[' . $arrayCobros . ']';
-        return $arrayCobros;
     }
     public static function cobroDiarioEstadistico_()
     {
