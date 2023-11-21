@@ -50,9 +50,8 @@ class Clientes extends Model
     }
     public static function totalClientes()
     {
-        return Clientes::selectRaw('count(id_cliente) as total')
-            ->where('id_empresa_cliente', session('idEmpresa'))
-            ->first();
+        return Clientes::where('id_empresa_cliente', session('idEmpresa'))
+            ->count('id_cliente');
     }
     public static function getIdCliente($ci, $idEmpresa)
     {
@@ -60,7 +59,9 @@ class Clientes extends Model
         $idCliente = 0;
         try {
             $persona = Personas::where('identificacion_persona', $ci)->first();
-            echo '<pre>';print_r($persona);exit;
+            echo '<pre>';
+            print_r($persona);
+            exit;
             if ($persona != '') {
                 $cliente = Clientes::where('id_persona_cliente', $persona->id_persona)
                     ->where('id_empresa_cliente', $idEmpresa)

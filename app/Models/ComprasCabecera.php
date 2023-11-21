@@ -41,7 +41,7 @@ class ComprasCabecera extends Model
             if (strlen($ruc) == 10)
                 $ruc = $ruc . '001';
             $empresa = Empresas::getIdEmpresa($ruc);
-            if ($empresa !=session('idEmpresa')) {
+            if ($empresa != session('idEmpresa')) {
                 $arrayXml = [
                     'status' => false,
                     'error' => 'El comprobante pertenece a otra empresa...',
@@ -71,9 +71,11 @@ class ComprasCabecera extends Model
     }
     public static function totalCompras()
     {
-        return ComprasCabecera::selectRaw('IFNULL(sum(subtotal_0_compra_cabecera),0)+IFNULL(sum(subtotal_12_compra_cabecera),0)-IFNULL(sum(descuento_compra_cabecera),0) as total')
-            ->where('id_empresa_compra_cabecera', session('idEmpresa'))
-            ->where('fecha_emision_compra_cabecera', session('periodo'))
+        return ComprasCabecera::selectRaw('IFNULL(SUM(subtotal_0_compra_cabecera), 0) + IFNULL(SUM(subtotal_12_compra_cabecera), 0) - IFNULL(SUM(descuento_compra_cabecera), 0) AS total')
+            ->where([
+                ['id_empresa_compra_cabecera', session('idEmpresa')],
+                ['fecha_emision_compra_cabecera', session('periodo')],
+            ])
             ->first();
     }
     public static function getCompras($id = '')
