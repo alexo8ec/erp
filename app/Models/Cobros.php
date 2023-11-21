@@ -12,7 +12,7 @@ class Cobros extends Model
     const CREATED_AT = 'created_at_cobro';
     const UPDATED_AT = 'updated_at_cobro';
 
-    public static function cobroDiarioEstadistico_()
+    public static function cobroDiarioEstadistico()
     {
         $arrayCobros = '';
         $cobros = Cobros::selectRaw(
@@ -44,10 +44,13 @@ class Cobros extends Model
             }
         }
         $arrayCobros = substr($arrayCobros, 0, -1);
+        echo '<pre>';
+        print_r($arrayCobros);
+        exit;
         return '[' . $arrayCobros . ']';
         return $arrayCobros;
     }
-    public static function cobroDiarioEstadistico()
+    public static function cobroDiarioEstadistico_()
     {
         $cobros = Cobros::selectRaw('
             YEAR(fecha_cobro) as Y,
