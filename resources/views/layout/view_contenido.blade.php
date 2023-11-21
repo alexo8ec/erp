@@ -42,7 +42,7 @@
                 </div>
                 <div class="ibox-content">
                     <div style="position: absolute;"><i class="fa fa-users fa-2x" style="color: chocolate;"></i></div>
-                    <h1 class="no-margins text-right">{{number_format(isset(config('data.totalClientes')->total)?config('data.totalClientes')->total:0)}}</h1>
+                    <h1 class="no-margins text-right">{{number_format(isset(config('data.totalClientes'))?config('data.totalClientes'):0)}}</h1>
                     <small>Total de clientes</small>
                 </div>
             </div>

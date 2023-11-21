@@ -83,9 +83,6 @@ class AdminController extends Controller
                         $data['totalVentas'] = VentasCabecera::totalVentas();
                         $data['totalCompras'] = ComprasCabecera::totalCompras();
                         $data['totalClientes'] = Clientes::totalClientes();
-                        echo '<pre>';
-                        print_r($data['totalClientes']);
-                        exit;
                         $data['totalProveedores'] = Proveedores::totalProveedores();
                         $data['ventas_mensuales'] = VentasCabecera::ventasDiariasEstadistico();
                         $data['cobros_mensuales'] = Cobros::cobroDiarioEstadistico();
