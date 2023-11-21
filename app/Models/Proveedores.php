@@ -31,9 +31,8 @@ class Proveedores extends Model
     }
     public static function totalProveedores()
     {
-        return Proveedores::selectRaw('count(id_proveedor) as total')
-            ->where('id_empresa_proveedor', session('idEmpresa'))
-            ->first();
+        return Proveedores::where('id_empresa_proveedor', session('idEmpresa'))
+            ->count('id_proveedor');
     }
     public static function importarProveedores()
     {

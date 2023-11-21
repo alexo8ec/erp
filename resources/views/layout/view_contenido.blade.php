@@ -57,7 +57,7 @@
                 </div>
                 <div class="ibox-content">
                     <div style="position: absolute;"><i class="fa fa-handshake-o fa-2x" style="color: darkslategrey;"></i></div>
-                    <h1 class="no-margins text-right">{{number_format(isset(config('data.totalProveedores')->total)?config('data.totalProveedores')->total:0)}}</h1>
+                    <h1 class="no-margins text-right">{{number_format(config('data.totalProveedores')!=''?config('data.totalProveedores'):0)}}</h1>
                     <small>Total de proveedores</small>
                 </div>
             </div>
