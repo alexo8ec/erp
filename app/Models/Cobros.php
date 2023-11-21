@@ -60,15 +60,26 @@ class Cobros extends Model
             ->where('estado_cobro', 1)
             ->groupBy('Y', 'm', 'd')
             ->get();
+        $number = cal_days_in_month(CAL_GREGORIAN, date('m'), session('periodo'));
 
-        $arrayCobros = $cobros->map(function ($cobro) {
+        $arrayCobros = [];
+        for ($dia = 1; $dia <= $number; $dia++) {
+            $total = isset($cobros[$dia]) ? $cobros[$dia] : 0;
+            $arrayVentas[] = [
+                '0' => $cobros[$dia]->Y,
+                '1' => $cobros[$dia]->m,
+                '2' => (string) $cobros[$dia]->d,
+                '3' => $cobros[$dia]->total,
+            ];
+        }
+        /*$arrayCobros = $cobros->map(function ($cobro) {
             return [
                 '0' => $cobro->Y,
                 '1' => $cobro->m,
                 '2' => (string) $cobro->d,
                 '3' => $cobro->total,
             ];
-        })->toArray();
+        })->toArray();*/
         echo '<pre>';
         print_r($arrayCobros);
         exit;
