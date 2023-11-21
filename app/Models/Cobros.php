@@ -61,19 +61,15 @@ class Cobros extends Model
             ->groupBy('Y', 'm', 'd')
             ->pluck('total', 'd')
             ->all();
-        echo '<pre>';
-        print_r($cobros);
-        exit;
         $number = cal_days_in_month(CAL_GREGORIAN, date('m'), session('periodo'));
-
         $arrayCobros = [];
         for ($dia = 1; $dia <= $number; $dia++) {
             $total = isset($cobros[$dia]) ? $cobros[$dia] : 0;
             $arrayVentas[] = [
-                '0' => $cobros[$dia]->Y,
-                '1' => $cobros[$dia]->m,
-                '2' => (string) $cobros[$dia]->d,
-                '3' => $cobros[$dia]->total,
+                '0' => session('periodo'),
+                '1' => date('m'),
+                '2' => (string) $dia,
+                '3' => $total,
             ];
         }
         /*$arrayCobros = $cobros->map(function ($cobro) {
