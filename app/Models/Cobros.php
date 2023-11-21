@@ -12,7 +12,7 @@ class Cobros extends Model
     const CREATED_AT = 'created_at_cobro';
     const UPDATED_AT = 'updated_at_cobro';
 
-    public static function cobroDiarioEstadistico()
+    public static function cobroDiarioEstadistico_()
     {
         $arrayCobros = '';
         $cobros = Cobros::selectRaw(
@@ -35,22 +35,9 @@ class Cobros extends Model
                 foreach ($cobros as $sal) {
                     if ($sal->d == $dia) {
                         $arrayCobros .= '{"0":"' . $sal->Y . '","1":"' . $sal->m . '","2":"' . (string)$dia . '","3":"' . $sal->total . '"},';
-                        /*$arrayCobro = [
-                        $sal->Y,
-                        $sal->m,
-                        (string)$dia,
-                        $sal->total,
-                    ];*/
                     } else {
                         $arrayCobros .= '{"0":"' . session('periodo') . '","1":"' . date('m') . '","2":"' . (string)$dia . '","3":"0"},';
-                        /*$arrayCobro = [
-                        (string)session('periodo'),
-                        (string)date('m'),
-                        (string)$dia,
-                        (string)0,
-                    ];*/
                     }
-                    //array_push($arrayCobros, $arrayCobro);
                 }
             } else {
                 $arrayCobros .= '{"0":"' . session('periodo') . '","1":"' . date('m') . '","2":"' . (string)$dia . '","3":"0"},';
@@ -59,6 +46,32 @@ class Cobros extends Model
         $arrayCobros = substr($arrayCobros, 0, -1);
         return '[' . $arrayCobros . ']';
         return $arrayCobros;
+    }
+    public static function cobroDiarioEstadistico()
+    {
+        $cobros = Cobros::selectRaw('
+            YEAR(fecha_cobro) as Y,
+            MONTH(fecha_cobro) as m,
+            DAY(fecha_cobro) as d,
+            SUM(valor_cobro) as total
+        ')
+            ->where('id_empresa_cobro', session('idEmpresa'))
+            ->whereYear('fecha_cobro', session('periodo'))
+            ->whereMonth('fecha_cobro', date('m'))
+            ->where('estado_cobro', 1)
+            ->groupBy('Y', 'm', 'd')
+            ->get();
+
+        $arrayCobros = $cobros->map(function ($cobro) {
+            return [
+                '0' => $cobro->Y,
+                '1' => $cobro->m,
+                '2' => (string) $cobro->d,
+                '3' => $cobro->total,
+            ];
+        })->toArray();
+
+        return json_encode($arrayCobros);
     }
     public static function getCobros($id)
     {
