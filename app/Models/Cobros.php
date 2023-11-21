@@ -72,17 +72,6 @@ class Cobros extends Model
                 '3' => $total,
             ];
         }
-        /*$arrayCobros = $cobros->map(function ($cobro) {
-            return [
-                '0' => $cobro->Y,
-                '1' => $cobro->m,
-                '2' => (string) $cobro->d,
-                '3' => $cobro->total,
-            ];
-        })->toArray();*/
-        echo '<pre>';
-        print_r($arrayCobros);
-        exit;
         return json_encode($arrayCobros);
     }
     public static function getCobros($id)

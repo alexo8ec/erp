@@ -80,9 +80,7 @@ class VentasCabecera extends Model
             ->groupBy('Y', 'm', 'd')
             ->pluck('total', 'd')
             ->all();
-
         $number = cal_days_in_month(CAL_GREGORIAN, date('m'), session('periodo'));
-
         $arrayVentas = [];
         for ($dia = 1; $dia <= $number; $dia++) {
             $total = isset($ventas[$dia]) ? $ventas[$dia] : 0;
