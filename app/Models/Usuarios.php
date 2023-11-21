@@ -176,50 +176,69 @@ class Usuarios extends Model
     }
     public static function getLogin($r, $origen = '')
     {
-        $mensaje = '';
         $arrayResultado = [];
         $remember_me = $r->has('remember') ? true : false;
         $usuario = Usuarios::where('usuario', $r->usuario)->first();
         if ($origen == 'API') {
-            if ($usuario != '') {
+            if ($usuario) {
                 if ($usuario->estado_usuario == 0) {
-                    $arrayResultado['status'] = false;
-                    $arrayResultado['code'] = 400;
-                    $arrayResultado['description'] = 'danger|Usuario desactivado';
+                    return [
+                        'status' => false,
+                        'code' => 400,
+                        'description' => 'danger|Usuario desactivado'
+                    ];
                 } else {
-                    $usuario = $usuario->leftjoin('db_archivos as a', 'db_usuarios.id_usuario', 'a.id_usuario_creacion_archivo')->where('clave_usuario', md5($r->usuario . Utilidades::keyLock() . $r->clave_usuario))->first(['db_usuarios.id_usuario', 'db_usuarios.usuario', 'db_usuarios.nombre_usuario', 'db_usuarios.apellido_usuario', 'db_usuarios.email_usuario', 'a.api_archivo as archivo']);
-                    if ($usuario != '') {
+                    $usuario = $usuario->leftjoin('db_archivos as a', 'db_usuarios.id_usuario', 'a.id_usuario_creacion_archivo')
+                        ->where('clave_usuario', md5($r->usuario . Utilidades::keyLock() . $r->clave_usuario))
+                        ->first(['db_usuarios.id_usuario', 'db_usuarios.usuario', 'db_usuarios.nombre_usuario', 'db_usuarios.apellido_usuario', 'db_usuarios.email_usuario', 'a.api_archivo as archivo']);
+                    if ($usuario) {
                         $token = Utilidades::getJwt($usuario);
                         $saldos = Usuarios::selectRaw(
-                            'IFNULL(SUM(ingreso_movimiento),0) AS ingreso,
-                            IFNULL(SUM(egreso_movimiento),0) AS egreso,
-                            IFNULL(SUM(ingreso_movimiento),0) +IFNULL(SUM(egreso_movimiento),0) AS saldo'
+                            'IFNULL(SUM(ingreso_movimiento), 0) AS ingreso,
+                            IFNULL(SUM(egreso_movimiento), 0) AS egreso,
+                            IFNULL(SUM(ingreso_movimiento), 0) + IFNULL(SUM(egreso_movimiento), 0) AS saldo'
                         )
                             ->leftjoin('db_movimientos_billetera as m', 'db_usuarios.id_usuario', '=', 'm.id_cliente_movimiento')
                             ->where('db_usuarios.id_usuario', $usuario->id_usuario)
                             ->get();
-                        $movimientos = MovimientosBilletera::where('id_cliente_movimiento', $usuario->id_usuario)->orderBy('fecha_movimiento', 'DESC')->limit(20)->get();
-                        $arrayResultado['status'] = true;
-                        $arrayResultado['code'] = 200;
-                        $arrayResultado['description'] = 'success|Login correcto';
-                        $arrayResultado['data'] = ['token' => $token, 'id' => $usuario->id_usuario, 'usuario' => $usuario->usuario, 'nombre' => $usuario->nombre_usuario . ' ' . $usuario->apellido_usuario, 'saldos' => $saldos, 'movimientos' => $movimientos, 'avatar' => $usuario->archivo];
+                        $movimientos = MovimientosBilletera::where('id_cliente_movimiento', $usuario->id_usuario)
+                            ->orderBy('fecha_movimiento', 'DESC')
+                            ->limit(20)
+                            ->get();
+                        return [
+                            'status' => true,
+                            'code' => 200,
+                            'description' => 'success|Login correcto',
+                            'data' => [
+                                'token' => $token,
+                                'id' => $usuario->id_usuario,
+                                'usuario' => $usuario->usuario,
+                                'nombre' => $usuario->nombre_usuario . ' ' . $usuario->apellido_usuario,
+                                'saldos' => $saldos,
+                                'movimientos' => $movimientos,
+                                'avatar' => $usuario->archivo
+                            ]
+                        ];
                         Usuarios::updateLogin(1, 'API', $usuario->id_usuario);
                     } else {
-                        $arrayResultado['status'] = false;
-                        $arrayResultado['code'] = 400;
-                        $arrayResultado['description'] = 'danger|El usuario/contraseña son incorrectos';
+                        return [
+                            'status' => false,
+                            'code' => 400,
+                            'description' => 'danger|El usuario/contraseña son incorrectos'
+                        ];
                     }
                 }
             } else {
-                $arrayResultado['status'] = false;
-                $arrayResultado['code'] = 401;
-                $arrayResultado['description'] = 'danger|Usuario no existe en la base de datos';
+                return [
+                    'status' => false,
+                    'code' => 401,
+                    'description' => 'danger|Usuario no existe en la base de datos'
+                ];
             }
-            return $arrayResultado;
         } else {
-            if ($usuario != '') {
+            if ($usuario) {
                 $fecha1 = new DateTime();
-                $fecha2 = new  DateTime($usuario->tiempo_login);
+                $fecha2 = new DateTime($usuario->tiempo_login);
                 $intervalo = $fecha1->diff($fecha2);
                 $minutosTras = $intervalo->format('%i');
                 if ($usuario->tiempo_login != null) {
@@ -244,26 +263,24 @@ class Usuarios extends Model
                     }
                 }
                 Usuarios::where('usuario', $r->usuario)->update($arrayLogin);
-
                 if ($usuario->estado_usuario == 0) {
-                    $mensaje = 'danger|Usuario desactivado';
+                    return 'danger|Usuario desactivado';
                 }
                 $usuario = $usuario->where('clave_usuario', md5($r->usuario . Utilidades::keyLock() . $r->clave_usuario))->first(['id_usuario']);
-                if ($usuario != '') {
+                if ($usuario) {
                     session([
                         'idUsuario' => $usuario->id_usuario,
                         'periodo' => date('Y')
                     ]);
                     Usuarios::updateLogin(1);
-                    $mensaje = '';
+                    return '';
                 } else {
-                    $mensaje = 'danger|Usuario y/o contraseña incorrectos';
+                    return 'danger|Usuario y/o contraseña incorrectos';
                 }
             } else {
-                $mensaje = 'danger|Usuario no existe en la base de datos';
+                return 'danger|Usuario no existe en la base de datos';
             }
         }
-        return $mensaje;
     }
     public static function apiLogout($r)
     {
