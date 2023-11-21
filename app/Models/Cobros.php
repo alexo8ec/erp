@@ -65,7 +65,7 @@ class Cobros extends Model
         $arrayCobros = [];
         for ($dia = 1; $dia <= $number; $dia++) {
             $total = isset($cobros[$dia]) ? $cobros[$dia] : 0;
-            $arrayVentas[] = [
+            $arrayCobros[] = [
                 '0' => session('periodo'),
                 '1' => date('m'),
                 '2' => (string) $dia,
