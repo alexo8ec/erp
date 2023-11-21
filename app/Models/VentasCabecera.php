@@ -77,7 +77,7 @@ class VentasCabecera extends Model
             ->where('establecimiento_venta_cabecera', session('estab'))
             ->where('emision_venta_cabecera', session('emisi'))
             ->where('estado_venta_cabecera', 1)
-            ->groupBy('d')
+            ->groupBy('Y', 'm', 'd')
             ->pluck('total', 'd')
             ->all();
 
