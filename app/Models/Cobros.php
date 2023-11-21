@@ -70,7 +70,9 @@ class Cobros extends Model
                 '3' => $cobro->total,
             ];
         })->toArray();
-
+        echo '<pre>';
+        print_r($arrayCobros);
+        exit;
         return json_encode($arrayCobros);
     }
     public static function getCobros($id)
