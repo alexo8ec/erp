@@ -220,10 +220,10 @@ class VentasCabecera extends Model
                         'id_usuario_creacion_venta_cabecera' => session('idUsuario'),
                         'id_usuario_modificacion_venta_cabecera' => session('idUsuario'),
                     ];
-                    echo '<pre>';
+                    /*echo '<pre>';
                     print_r($arrayVentaCabecera);
                     DB::rollBack();
-                    exit;
+                    exit;*/
                     $idVenta = VentasCabecera::insertGetId($arrayVentaCabecera);
 
                     $totalItems = 0;
