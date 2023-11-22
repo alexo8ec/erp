@@ -59,9 +59,6 @@ class Clientes extends Model
         $idCliente = 0;
         try {
             $persona = Personas::where('identificacion_persona', $ci)->first();
-            echo '<pre>';
-            print_r($persona);
-            exit;
             if ($persona != '') {
                 $cliente = Clientes::where('id_persona_cliente', $persona->id_persona)
                     ->where('id_empresa_cliente', $idEmpresa)
